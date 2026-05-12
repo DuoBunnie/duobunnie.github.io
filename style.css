@@ -942,10 +942,38 @@ strong { color: var(--text); font-weight: 500; }
   padding-top: 3.6rem;
 }
 
+/* Small uppercase label above each section h2 */
+.case-section-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.case-section-label::after {
+  content: '\2014';
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  opacity: 0.45;
+  font-weight: 400;
+}
+
 .case-section h2 {
   margin-bottom: 1.6rem;
   font-size: 1.65rem;
   letter-spacing: -0.3px;
+}
+
+/* Accent-colored italic in section titles */
+.case-section h2 em {
+  font-style: italic;
+  color: var(--accent);
 }
 
 /* ─── PROCESS TIMELINE ────────────────────────────────────────── */
