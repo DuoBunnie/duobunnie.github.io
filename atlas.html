@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATLAS — Duo Xu</title>
+  <meta name="description" content="How I designed the evaluator assignment module for New York's statewide special education platform, serving 250,000 students across 1,800+ schools.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Duo Xu</a>
+    <ul class="nav-links">
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <!-- CASE HEADER -->
+    <section style="margin-bottom: 0;">
+      <p class="mono" style="margin-bottom: 1rem;">Case Study &mdash; 2025</p>
+      <h1 style="max-width: 640px;">ATLAS: Designing for a System That Cannot Fail</h1>
+      <p style="margin-top: 1.2rem; max-width: 580px; font-size: 0.98rem;">
+        New York's SESIS platform was retiring after two decades. ATLAS was its replacement:
+        a statewide IEP case management system where a missed deadline means a federal
+        compliance violation, and a confusing interface means a child waits longer for support.
+      </p>
+    </section>
+
+    <!-- META -->
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="mono">Role</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Product Designer (sole designer)</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Client</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">NYC Dept. of Education via FIFT</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Platform</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Web application (desktop-first)</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Timeline</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">8 months</p>
+      </div>
+    </div>
+
+    <!-- IMPACT -->
+    <div class="impact-row">
+      <div class="impact-box">
+        <span class="impact-n">250K+</span>
+        <span class="impact-l">Students served statewide</span>
+      </div>
+      <div class="impact-box">
+        <span class="impact-n">1,800+</span>
+        <span class="impact-l">Schools on the platform</span>
+      </div>
+      <div class="impact-box">
+        <span class="impact-n">40%</span>
+        <span class="impact-l">Reduction in tracking time</span>
+      </div>
+    </div>
+
+    <div class="img-block">
+      <span>[ Hero screenshot: ATLAS evaluator assignment dashboard ]</span>
+    </div>
+
+    <!-- CONTEXT -->
+    <section class="case-section">
+      <h2>The stakes</h2>
+      <p>
+        Under the Individuals with Disabilities Education Act (IDEA), schools are legally
+        required to complete student evaluations within fixed timelines. A delay is not just
+        an operational failure. It is a federal violation with real consequences for schools
+        and, more importantly, for students waiting on services.
+      </p>
+      <p>
+        SESIS, the legacy system built in the early 2000s, was being retired. ATLAS was the
+        replacement, and it had to be ready for the 1,800+ schools and thousands of evaluators,
+        case managers, and school psychologists who depended on it daily. There was no soft
+        launch. There was no gradual rollout. It had to work on day one.
+      </p>
+
+      <div class="callout">
+        <p>
+          "The hardest part of this project was that the users had no margin for a learning
+          curve. They were managing caseloads of 30 to 50 students each. If the new system
+          slowed them down even slightly, it would compound across every student in their queue."
+        </p>
+      </div>
+    </section>
+
+    <!-- DISCOVERY -->
+    <section class="case-section">
+      <h2>Discovery: what the system hid</h2>
+      <p>
+        I started with a research sprint before any design work. I ran interviews with
+        evaluators, school psychologists, and case managers across multiple schools. I also
+        observed how people actually used SESIS, which was different from how they were
+        supposed to use it.
+      </p>
+      <p>
+        The key finding: most tracking was happening <strong>outside the system</strong>.
+        Evaluators were keeping their own spreadsheets, sticky notes, and email threads to
+        manage their assignment queues. SESIS showed them what was assigned but not the
+        full picture of what was overdue, what was at risk, or what was waiting.
+      </p>
+      <p>
+        The evaluator assignment module was nominally a routing tool. But the real job to
+        be done was <strong>capacity management under time pressure</strong>. Those are
+        different design problems.
+      </p>
+
+      <div class="img-block img-block--short">
+        <span>[ Research synthesis: affinity map from evaluator interviews ]</span>
+      </div>
+
+      <p>
+        Three patterns surfaced consistently across participants:
+      </p>
+      <ul style="margin: 1rem 0 0 1.4rem; display: flex; flex-direction: column; gap: 0.7rem;">
+        <li><p style="font-size: 0.88rem;"><strong>Assignment blind spots.</strong> No way to see an evaluator's full current load before assigning a new case. Coordinators were guessing.</p></li>
+        <li><p style="font-size: 0.88rem;"><strong>Deadline invisibility.</strong> Compliance deadlines were stored in the system but not surfaced at the point of decision. People had to navigate away to check them.</p></li>
+        <li><p style="font-size: 0.88rem;"><strong>Specialty mismatch.</strong> Evaluators had specific areas of expertise. Nothing in SESIS helped coordinators match student needs to evaluator skills.</p></li>
+      </ul>
+    </section>
+
+    <!-- KEY DECISIONS -->
+    <section class="case-section">
+      <h2>Design decisions</h2>
+
+      <div style="margin-bottom: 2.5rem;">
+        <h3 style="margin-bottom: 0.8rem; color: var(--accent); font-size: 0.82rem; font-family: 'Courier New', monospace; letter-spacing: 0.06em; text-transform: uppercase;">Decision 01 &mdash; Surface capacity at the point of assignment</h3>
+        <p>
+          The old flow required coordinators to know an evaluator's load from memory or by
+          navigating away. I redesigned the assignment modal to show each evaluator's current
+          active caseload, upcoming deadlines, and specialty tags inline, before the assignment
+          was made.
+        </p>
+        <p>
+          This required pulling data that existed elsewhere in the system and surfacing it
+          contextually. I worked with the engineering lead to understand what was performant
+          to query in real-time versus what needed to be pre-computed. That conversation shaped
+          the final information architecture.
+        </p>
+        <div class="img-block img-block--short" style="margin-top: 1.2rem;">
+          <span>[ Before / after: evaluator selection modal ]</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 2.5rem;">
+        <h3 style="margin-bottom: 0.8rem; color: var(--accent); font-size: 0.82rem; font-family: 'Courier New', monospace; letter-spacing: 0.06em; text-transform: uppercase;">Decision 02 &mdash; Bring deadlines into the primary workflow</h3>
+        <p>
+          Compliance deadlines needed to be visible in the assignment queue itself, not
+          buried in a case detail view. I introduced a status system with three states: on
+          track, at risk, and overdue, with color and label differentiation designed to work
+          for users with color vision deficiencies. The queue sorted by risk state by default.
+        </p>
+        <p>
+          There was internal debate about whether to alert users aggressively or show status
+          passively. I advocated for passive status indicators in the queue paired with a
+          single explicit alert for anything crossing into overdue. Aggressive alerts on a
+          list of 50 items create noise that users learn to ignore. That argument won.
+        </p>
+      </div>
+
+      <div style="margin-bottom: 2.5rem;">
+        <h3 style="margin-bottom: 0.8rem; color: var(--accent); font-size: 0.82rem; font-family: 'Courier New', monospace; letter-spacing: 0.06em; text-transform: uppercase;">Decision 03 &mdash; Specialty matching without extra steps</h3>
+        <p>
+          I added evaluator specialty tags to the system and created a filter on the
+          assignment panel that highlighted evaluators whose specialties matched the
+          student's evaluation type. This was optional, not enforced, because coordinators
+          sometimes had legitimate reasons to assign outside specialty (availability, school
+          relationship, geography). The system surfaced the signal without removing judgment
+          from the human.
+        </p>
+      </div>
+
+      <div class="img-block">
+        <span>[ Full assignment flow: queue view to confirmation ]</span>
+      </div>
+    </section>
+
+    <!-- COLLABORATION -->
+    <section class="case-section">
+      <h2>How I worked with the team</h2>
+      <p>
+        I partnered with a project manager, two engineers, and a product owner at the NYC
+        Department of Education. On the research side, I coordinated access to evaluators and
+        school psychologists independently, since waiting for it to be scheduled through the
+        agency would have cost weeks.
+      </p>
+      <p>
+        I ran weekly design reviews with the full team and presented two structural approaches
+        to the product director at the midpoint: one that minimized development scope and one
+        that solved the full capacity management problem at the cost of more engineering time.
+        I made the case for the larger scope with research findings and a risk argument: the
+        smaller scope would ship faster but require a redesign within six months as edge cases
+        emerged. The full-scope approach was approved.
+      </p>
+      <p>
+        Specs were delivered as annotated Figma files with explicit state coverage for empty
+        states, error states, and edge cases. Handoff was a walkthrough, not a document drop.
+      </p>
+    </section>
+
+    <!-- OUTCOME -->
+    <section class="case-section">
+      <h2>Outcome</h2>
+      <p>
+        The evaluator assignment module shipped as part of ATLAS's initial rollout across
+        New York City schools. Tracking time per assignment dropped by 40% compared to the
+        SESIS workflow. More meaningfully, coordinators stopped keeping parallel spreadsheets.
+        The system became the source of truth it was supposed to be.
+      </p>
+      <p>
+        That 40% is not a UX win. It is a capacity unlock. Hours recovered from coordination
+        overhead went back to the students.
+      </p>
+
+      <div class="impact-row" style="margin-top: 1.6rem;">
+        <div class="impact-box">
+          <span class="impact-n">40%</span>
+          <span class="impact-l">Faster assignment tracking</span>
+        </div>
+        <div class="impact-box">
+          <span class="impact-n">0</span>
+          <span class="impact-l">Parallel spreadsheets needed post-launch</span>
+        </div>
+        <div class="impact-box">
+          <span class="impact-n">Day 1</span>
+          <span class="impact-l">Adoption without a training manual</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFLECTION -->
+    <section class="case-section">
+      <h2>What I'd do differently</h2>
+      <p>
+        I would push earlier for quantitative baseline data on how long the SESIS
+        assignment flow actually took. We measured the improvement after launch, but
+        I relied on qualitative reports for the before state. A time-on-task baseline
+        from usability testing against SESIS would have made the outcome story tighter.
+      </p>
+      <p>
+        I'd also build a more explicit feedback loop into the post-launch phase. We
+        shipped, gathered anecdotal feedback, and moved on. A structured check-in with
+        five coordinators at the 30-day mark would have surfaced edge cases we patched
+        reactively.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- NEXT PROJECT -->
+    <a href="nexxen.html" class="next-project">
+      <div>
+        <span class="next-project-label">Next project</span>
+        <span class="next-project-title">Nexxen DSP &mdash; Design System Rebuild</span>
+      </div>
+      <span class="next-project-arrow">&rarr;</span>
+    </a>
+
+  </main>
+
+  <footer>
+    <p>Duo Xu &mdash; Product Designer</p>
+    <ul class="footer-links">
+      <li><a href="mailto:hello@duobunnie.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/duobunnie" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/duobunnie" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

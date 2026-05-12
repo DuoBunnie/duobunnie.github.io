@@ -3,127 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Duo — Coming Soon</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0e0e0e;
-      --surface: #161616;
-      --border: #2a2a2a;
-      --text: #e8e8e8;
-      --muted: #888;
-      --accent: #c8b4ff;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Georgia', serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .container {
-      max-width: 560px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #c8b4ff 0%, #8b72f0 100%);
-      margin: 0 auto 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      font-family: sans-serif;
-      user-select: none;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      font-weight: normal;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.6rem;
-    }
-
-    .tagline {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 2.4rem;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 auto 2.4rem;
-      width: 48px;
-    }
-
-    .status {
-      display: inline-block;
-      font-family: 'Courier New', monospace;
-      font-size: 0.78rem;
-      color: var(--accent);
-      background: rgba(200, 180, 255, 0.08);
-      border: 1px solid rgba(200, 180, 255, 0.2);
-      border-radius: 20px;
-      padding: 0.3rem 0.9rem;
-      margin-bottom: 2.4rem;
-      letter-spacing: 0.04em;
-    }
-
-    .links {
-      display: flex;
-      gap: 1.4rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-family: sans-serif;
-      font-size: 0.88rem;
-      letter-spacing: 0.02em;
-      transition: color 0.15s;
-    }
-
-    .links a:hover {
-      color: var(--text);
-    }
-
-    footer {
-      position: fixed;
-      bottom: 1.6rem;
-      font-family: sans-serif;
-      font-size: 0.75rem;
-      color: #444;
-    }
-  </style>
+  <title>Duo Xu — Product Designer</title>
+  <meta name="description" content="Product designer specializing in systems design, enterprise UX, and interaction design. 4+ years shipping products at scale.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="avatar">D</div>
-    <h1>Duo</h1>
-    <p class="tagline">Designer &amp; developer.<br>Something's being built here.</p>
-    <hr class="divider">
-    <span class="status">● site in progress</span>
-    <div class="links">
-      <a href="mailto:hello@duobunnie.com">email</a>
-      <a href="https://github.com/duobunnie" target="_blank" rel="noopener">github</a>
-      <a href="https://linkedin.com/in/duobunnie" target="_blank" rel="noopener">linkedin</a>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Duo Xu</a>
+    <ul class="nav-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section style="margin-bottom: 3.5rem;">
+      <p class="mono" style="margin-bottom: 1.2rem;">Product Designer</p>
+      <h1>I design systems<br>and experiences<br>that scale.</h1>
+      <p style="margin-top: 1.4rem; max-width: 520px; font-size: 1rem; line-height: 1.8;">
+        From enterprise infrastructure to government platforms, my work reaches real users
+        and ships on time. I think in tokens and behaviors, collaborate with PMs and engineers
+        from the start, and care as much about the design system as the screen.
+      </p>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-n">250K+</span>
+        <span class="stat-l">Users Served</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">40%</span>
+        <span class="stat-l">Reduction in Processing Time</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">200+</span>
+        <span class="stat-l">Components Shipped</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">4+</span>
+        <span class="stat-l">Years Experience</span>
+      </div>
     </div>
-  </div>
-  <footer>duobunnie.github.io</footer>
+
+    <!-- FEATURED WORK -->
+    <section style="margin-top: 3.5rem;">
+      <p class="section-label">Featured Work</p>
+
+      <a href="nexxen.html" class="card">
+        <div class="card-head">
+          <span class="card-title">Nexxen DSP — Design System Rebuild</span>
+          <span class="card-year">2026</span>
+        </div>
+        <p class="card-desc">
+          The system had become a bottleneck. Engineers were hard-coding values,
+          designers were duplicating work, and every new product surface required
+          rebuilding from scratch. I rebuilt the system from primitives up: a 3-tier
+          token architecture, 200+ components, dark mode and white-label retheming
+          from a single source of truth.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Design Systems</span>
+          <span class="tag">Enterprise UX</span>
+          <span class="tag">Interaction Design</span>
+        </div>
+      </a>
+
+      <a href="atlas.html" class="card">
+        <div class="card-head">
+          <span class="card-title">ATLAS — Special Education Case Management</span>
+          <span class="card-year">2025</span>
+        </div>
+        <p class="card-desc">
+          250,000 students. 1,800+ schools. A federal legal obligation to deliver
+          evaluations on time. I owned the evaluator assignment module end-to-end for
+          New York's statewide IEP platform, replacing a legacy system that case managers
+          had relied on for over a decade. The work cut tracking time by 40% and recovered
+          hours every week for people whose time belonged to students, not spreadsheets.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Government Scale</span>
+          <span class="tag">Enterprise UX</span>
+          <span class="tag">Systems Thinking</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- ALSO BUILT -->
+    <section style="margin-top: 3.5rem;">
+      <p class="section-label">Also Built</p>
+      <ul class="work-list">
+        <li>
+          <span class="work-item-title">Hypergiant TV</span>
+          <span class="work-item-sep mono">/</span>
+          <span class="work-item-desc">AI-powered video platform for enterprise thought leadership</span>
+          <span class="work-item-year mono">2023</span>
+        </li>
+        <li style="display:flex; align-items:baseline; gap:1rem; padding:1rem 0; border-bottom:1px solid var(--border);">
+          <span class="work-item-title">Feeding America</span>
+          <span class="work-item-sep mono">/</span>
+          <span class="work-item-desc">Scalable resource platform improving access to local food assistance</span>
+          <span class="work-item-year mono">2022</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" style="margin-top: 4rem;">
+      <h2>Open to senior product design roles.</h2>
+      <p>
+        If you're building something that needs to work at scale, I'd like to talk.
+      </p>
+      <div class="btn-row">
+        <a href="mailto:hello@duobunnie.com" class="btn btn-primary">Get in touch</a>
+        <a href="work.html" class="btn btn-ghost">View all work</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download resume</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Duo Xu &mdash; Product Designer</p>
+    <ul class="footer-links">
+      <li><a href="mailto:hello@duobunnie.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/duobunnie" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/duobunnie" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </footer>
+
 </body>
 </html>
