@@ -159,6 +159,34 @@ nav {
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 14px;
+  background: none;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.22s ease;
+  transform-origin: center;
+}
+
+.nav-hamburger.open span:first-child  { transform: translateY(6.25px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:last-child   { transform: translateY(-6.25px) rotate(-45deg); }
+
 .nav-links a.nav-cta:hover {
   background: var(--accent);
   border-color: var(--accent);
@@ -1098,10 +1126,83 @@ footer p {
   .project-feature-tags { justify-content: flex-start; }
 }
 
-@media (max-width: 760px) {
-  nav { padding: 1rem 1.4rem; }
-  .nav-links { gap: 1.4rem; }
+/* ─── TABLET ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .case-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+  }
 
+  .impact-row { flex-wrap: wrap; }
+  .impact-box { flex: 1 1 calc(50% - 1rem); }
+
+  .palette-row {
+    grid-template-columns: 4rem repeat(10, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  /* ── Mobile nav ── */
+  nav {
+    padding: 1rem 1.4rem;
+    position: relative;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(253, 250, 249, 0.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 0;
+    padding: 0 1.4rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                padding-top 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                padding-bottom 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .nav-links.open {
+    max-height: 360px;
+    padding-top: 0.6rem;
+    padding-bottom: 1rem;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.9rem 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-links a.nav-cta {
+    border: none;
+    border-radius: 0;
+    padding: 0.9rem 0;
+    color: var(--accent);
+    background: none;
+  }
+
+  /* ── Layout ── */
   .page, .page--wide { padding: 7rem 1.4rem 4rem; }
 
   .hero {
@@ -1118,8 +1219,9 @@ footer p {
   h1 { font-size: 2rem; }
 
   .stats { gap: 1.6rem; }
-  .case-meta { gap: 1.4rem; }
+  .case-meta { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
   .impact-row { flex-direction: column; }
+  .impact-box { flex: 1 1 100%; }
 
   .about-lead { grid-template-columns: 1fr; gap: 2.8rem; }
   .about-lead-text h1 { font-size: 2.4rem; }
@@ -1128,6 +1230,18 @@ footer p {
 
   .explore-grid { grid-template-columns: 1fr 1fr; }
 
+  /* ── Case study components ── */
+  .process-step { grid-template-columns: 2.2rem 1fr; gap: 1rem; }
+
+  .palette-row {
+    grid-template-columns: 3.5rem repeat(10, 1fr);
+  }
+
+  .type-table th,
+  .type-table td { padding: 0.6rem 0.7rem; font-size: 0.78rem; }
+
+  pre, code { font-size: 0.75rem; }
+
   footer { flex-direction: column; align-items: flex-start; }
 }
 
@@ -1135,4 +1249,16 @@ footer p {
   .how-i-work { grid-template-columns: 1fr; }
   .hero-name { font-size: 3.2rem; letter-spacing: -1.8px; }
   .explore-grid { grid-template-columns: 1fr; }
+
+  .case-meta { grid-template-columns: 1fr; }
+
+  .palette-grid { overflow-x: auto; }
+  .palette-row  {
+    grid-template-columns: 3rem repeat(10, minmax(1.8rem, 1fr));
+    min-width: 420px;
+  }
+
+  .impact-row { gap: 0.8rem; }
+
+  .process-step { grid-template-columns: 2rem 1fr; gap: 0.8rem; }
 }
