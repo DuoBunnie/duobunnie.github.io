@@ -56,13 +56,23 @@
       </div>
 
       <div class="hero-image">
-        <div class="hero-image-inner">
-          <!--
-            Replace this placeholder with your photo:
-            <img src="photo.jpg" alt="Duo Xu">
-          -->
-          <div class="hero-image-placeholder">
-            <span>Add your photo here</span>
+        <div class="mosaic-grid" id="mosaicGrid" aria-hidden="true"></div>
+        <div class="mosaic-controls">
+          <div class="mosaic-control">
+            <p class="mosaic-control-label">Count <span class="mosaic-val" data-for="mosaicCount">4</span></p>
+            <input type="range" id="mosaicCount" min="2" max="8" value="4" step="1">
+          </div>
+          <div class="mosaic-control">
+            <p class="mosaic-control-label">Gap <span class="mosaic-val" data-for="mosaicGap">4</span></p>
+            <input type="range" id="mosaicGap" min="0" max="16" value="4" step="1">
+          </div>
+          <div class="mosaic-control">
+            <p class="mosaic-control-label">Round <span class="mosaic-val" data-for="mosaicRound">60</span></p>
+            <input type="range" id="mosaicRound" min="0" max="100" value="60" step="1">
+          </div>
+          <div class="mosaic-control">
+            <p class="mosaic-control-label">Chaos <span class="mosaic-val" data-for="mosaicChaos">40</span></p>
+            <input type="range" id="mosaicChaos" min="0" max="100" value="40" step="1">
           </div>
         </div>
       </div>

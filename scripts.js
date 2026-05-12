@@ -166,6 +166,110 @@
     });
   }
 
+  /* ─── GEOMETRIC MOSAIC ────────────────────────────────────────── */
+  (function () {
+    const grid   = document.getElementById('mosaicGrid');
+    if (!grid) return;
+
+    const $count = document.getElementById('mosaicCount');
+    const $gap   = document.getElementById('mosaicGap');
+    const $round = document.getElementById('mosaicRound');
+    const $chaos = document.getElementById('mosaicChaos');
+
+    // To enable photo masking: set PHOTO = 'url(your-photo.jpg)'
+    const PHOTO = null;
+
+    // Shape border-radius library
+    const SHAPES = [
+      { br: '50%',           minC: 0    },  // circle
+      { br: '__ROUND__',     minC: 0    },  // rounded square (dynamic)
+      { br: '50% 50% 0 0',   minC: 0.08 },  // arch top
+      { br: '0 0 50% 50%',   minC: 0.08 },  // arch bottom
+      { br: '50% 0 0 50%',   minC: 0.08 },  // arch left
+      { br: '0 50% 50% 0',   minC: 0.08 },  // arch right
+      { br: '100% 0 0 0',    minC: 0.22 },  // quarter TL
+      { br: '0 100% 0 0',    minC: 0.22 },  // quarter TR
+      { br: '0 0 100% 0',    minC: 0.22 },  // quarter BR
+      { br: '0 0 0 100%',    minC: 0.22 },  // quarter BL
+      { br: '50% 0 50% 0',   minC: 0.42 },  // leaf diagonal
+      { br: '0 50% 0 50%',   minC: 0.42 },  // leaf diagonal alt
+      { br: '50% 50% 0 50%', minC: 0.55 },  // pac-man variant
+    ];
+
+    function pickShape(r, c) {
+      const available = SHAPES.filter(s => c >= s.minC);
+      const weights = available.map(s => {
+        if (s.br === '50%')       return 0.4 + r * 1.8;
+        if (s.br === '__ROUND__') return 0.5 + (1 - r) * 1.2;
+        return 0.3 + c * 0.9;
+      });
+      const total = weights.reduce((a, b) => a + b, 0);
+      let rand = Math.random() * total;
+      for (let i = 0; i < available.length; i++) {
+        rand -= weights[i];
+        if (rand <= 0) {
+          const s = available[i];
+          return s.br === '__ROUND__' ? `${Math.round(r * 48)}%` : s.br;
+        }
+      }
+      return available[0].br;
+    }
+
+    function cellColor(col, row, n) {
+      const tx = n > 1 ? col / (n - 1) : 0.5;
+      const ty = n > 1 ? row / (n - 1) : 0.5;
+      const hue = 342 - (tx + ty) * 0.5 * 142;
+      const sat = 38 - ty * 6;
+      const lit = 84 - (tx + ty) * 3.5;
+      return `hsl(${hue.toFixed(1)}, ${sat.toFixed(1)}%, ${lit.toFixed(1)}%)`;
+    }
+
+    function build() {
+      const n   = +$count.value;
+      const gap = +$gap.value;
+      const r   = +$round.value / 100;
+      const c   = +$chaos.value / 100;
+
+      grid.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
+      grid.style.gap = gap + 'px';
+      grid.innerHTML = '';
+
+      for (let i = 0; i < n * n; i++) {
+        const col  = i % n;
+        const row  = Math.floor(i / n);
+        const cell = document.createElement('div');
+        cell.className = 'mosaic-cell';
+
+        cell.style.borderRadius = pickShape(r, c);
+        cell.style.animationDelay = (i * 12) + 'ms';
+
+        if (PHOTO) {
+          const bgX = n > 1 ? (col / (n - 1)) * 100 : 50;
+          const bgY = n > 1 ? (row / (n - 1)) * 100 : 50;
+          cell.style.backgroundImage    = `url(${PHOTO})`;
+          cell.style.backgroundSize     = `${n * 100}% ${n * 100}%`;
+          cell.style.backgroundPosition = `${bgX}% ${bgY}%`;
+        } else {
+          cell.style.backgroundColor = cellColor(col, row, n);
+        }
+
+        grid.appendChild(cell);
+      }
+
+      // Update displayed values
+      document.querySelectorAll('.mosaic-val').forEach(el => {
+        const inp = document.getElementById(el.dataset.for);
+        if (inp) el.textContent = inp.value;
+      });
+    }
+
+    [$count, $gap, $round, $chaos].forEach(el => {
+      if (el) el.addEventListener('input', build);
+    });
+
+    build();
+  })();
+
   /* ─── CARD SHIMMER ─────────────────────────────────────────── */
   document.querySelectorAll('.project-feature').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
