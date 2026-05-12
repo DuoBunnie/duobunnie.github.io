@@ -20,9 +20,8 @@
 
   <main class="page--wide">
 
-    <!-- HERO: two-column editorial layout -->
+    <!-- HERO -->
     <section class="hero">
-
       <div class="hero-text">
         <p class="hero-eyebrow">Product Designer &nbsp;&middot;&nbsp; MFA Parsons &nbsp;&middot;&nbsp; New York</p>
         <h1 class="hero-name">Duo Xu</h1>
@@ -33,15 +32,15 @@
         </p>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-n">250K+</span>
+            <span class="stat-n" data-count="250" data-suffix="K+">250K+</span>
             <span class="stat-l">Users Served</span>
           </div>
           <div class="stat">
-            <span class="stat-n">40%</span>
+            <span class="stat-n" data-count="40" data-suffix="%">40%</span>
             <span class="stat-l">Faster Tracking</span>
           </div>
           <div class="stat">
-            <span class="stat-n">200+</span>
+            <span class="stat-n" data-count="200" data-suffix="+">200+</span>
             <span class="stat-l">Components Shipped</span>
           </div>
         </div>
@@ -58,55 +57,89 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- SELECTED WORK -->
-    <section>
+    <section class="reveal">
       <p class="section-label">Selected Work</p>
 
-      <a href="nexxen.html" class="card">
-        <div class="card-head">
-          <span class="card-title">Nexxen DSP &mdash; Design System Rebuild</span>
-          <span class="card-year">2026</span>
+      <!-- Nexxen: image left, content right -->
+      <a href="nexxen.html" class="project-feature">
+        <div class="project-feature-img">
+          <div class="project-feature-img-inner">
+            <!--
+              Replace with cover image:
+              <img src="nexxen-cover.jpg" alt="Nexxen DSP design system">
+            -->
+            <div class="project-img-placeholder">
+              <span>Add cover image</span>
+            </div>
+          </div>
         </div>
-        <p class="card-desc">
-          The design system had become a bottleneck. Engineers were hard-coding
-          values, designers were duplicating work, and every new surface required
-          rebuilding from scratch. I restructured it from primitives up: a 3-tier
-          token architecture, 200+ components, and a single source of truth that
-          finally made dark mode and white-label retheming possible.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Design Systems</span>
-          <span class="tag">Token Architecture</span>
-          <span class="tag">Enterprise UX</span>
+        <div class="project-feature-body">
+          <div class="project-feature-meta">
+            <span class="project-feature-year">2026</span>
+            <div class="project-feature-tags">
+              <span class="tag">Design Systems</span>
+              <span class="tag">Enterprise UX</span>
+            </div>
+          </div>
+          <div>
+            <h2 class="project-feature-title">Nexxen DSP</h2>
+            <p class="project-feature-subtitle">Design System Rebuild</p>
+          </div>
+          <p class="project-feature-desc">
+            The design system had become a bottleneck. I rebuilt it from primitives
+            up: a 3-tier token architecture, 200+ components, and a single source of
+            truth that made dark mode and white-label retheming finally possible.
+          </p>
+          <span class="project-feature-cta">
+            <span class="project-feature-cta-text">View case study</span>
+            <span class="project-feature-cta-arrow">&#x2192;</span>
+          </span>
         </div>
       </a>
 
-      <a href="atlas.html" class="card">
-        <div class="card-head">
-          <span class="card-title">ATLAS &mdash; Special Education Case Management</span>
-          <span class="card-year">2025</span>
+      <!-- ATLAS: content left, image right -->
+      <a href="atlas.html" class="project-feature project-feature--flip">
+        <div class="project-feature-img">
+          <div class="project-feature-img-inner">
+            <!--
+              Replace with cover image:
+              <img src="atlas-cover.jpg" alt="ATLAS case management platform">
+            -->
+            <div class="project-img-placeholder">
+              <span>Add cover image</span>
+            </div>
+          </div>
         </div>
-        <p class="card-desc">
-          250,000 students. 1,800+ schools. A federal legal obligation to deliver
-          evaluations on time. I owned the evaluator assignment module end-to-end
-          for New York's statewide IEP platform, replacing a legacy system that case
-          managers had depended on for over a decade. The result was a 40% reduction
-          in tracking time and a workflow that required no training manual.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Government Scale</span>
-          <span class="tag">Enterprise UX</span>
-          <span class="tag">Systems Thinking</span>
-          <span class="tag">Research</span>
+        <div class="project-feature-body">
+          <div class="project-feature-meta">
+            <span class="project-feature-year">2025</span>
+            <div class="project-feature-tags">
+              <span class="tag">Government Scale</span>
+              <span class="tag">Research</span>
+            </div>
+          </div>
+          <div>
+            <h2 class="project-feature-title">ATLAS</h2>
+            <p class="project-feature-subtitle">Special Education Case Management</p>
+          </div>
+          <p class="project-feature-desc">
+            250,000 students. 1,800+ schools. A federal legal obligation to deliver
+            evaluations on time. I owned the evaluator assignment module end-to-end,
+            delivering a 40% reduction in tracking time without a training manual.
+          </p>
+          <span class="project-feature-cta">
+            <span class="project-feature-cta-text">View case study</span>
+            <span class="project-feature-cta-arrow">&#x2192;</span>
+          </span>
         </div>
       </a>
     </section>
 
     <!-- ALSO BUILT -->
-    <section style="margin-top: 3.5rem;">
+    <section class="reveal reveal-delay-1" style="margin-top: 3.5rem;">
       <p class="section-label">Also Built</p>
       <ul class="work-list">
         <li class="work-item">
