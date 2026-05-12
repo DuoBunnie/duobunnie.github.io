@@ -56,20 +56,20 @@
     <!-- IMPACT -->
     <div class="impact-row">
       <div class="impact-box">
-        <span class="impact-n">200+</span>
-        <span class="impact-l">Components rebuilt on tokens</span>
-      </div>
-      <div class="impact-box">
         <span class="impact-n">7</span>
         <span class="impact-l">Tonal palettes replacing 40+ hardcoded values</span>
       </div>
       <div class="impact-box">
-        <span class="impact-n">3</span>
-        <span class="impact-l">Themes from a single source file</span>
+        <span class="impact-n">8</span>
+        <span class="impact-l">Named type roles in the semantic scale</span>
       </div>
       <div class="impact-box">
-        <span class="impact-n">2 hrs</span>
-        <span class="impact-l">To ship dark mode once tokens landed</span>
+        <span class="impact-n">0</span>
+        <span class="impact-l">Hardcoded values in post-launch components</span>
+      </div>
+      <div class="impact-box">
+        <span class="impact-n">&infin;</span>
+        <span class="impact-l">Theme changes propagate from semantic tokens</span>
       </div>
     </div>
 
@@ -319,19 +319,19 @@
             <div class="palette-swatch" style="background:#5c5c5c;"></div>
             <div class="palette-swatch" style="background:#444444; border-radius: 0 3px 3px 0;"></div>
           </div>
-          <!-- Teal / Secondary -->
+          <!-- Lavender / Secondary -->
           <div class="palette-row">
             <span class="palette-label">Secondary</span>
             <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#f3fffe;"></div>
-            <div class="palette-swatch" style="background:#d5fbf7;"></div>
-            <div class="palette-swatch" style="background:#aff5ee;"></div>
-            <div class="palette-swatch" style="background:#5de8db;"></div>
-            <div class="palette-swatch" style="background:#00d9cb;"></div>
-            <div class="palette-swatch" style="background:#00bcb0;"></div>
-            <div class="palette-swatch" style="background:#009e93;"></div>
-            <div class="palette-swatch" style="background:#007f78;"></div>
-            <div class="palette-swatch" style="background:#006360; border-radius: 0 3px 3px 0;"></div>
+            <div class="palette-swatch" style="background:#fef7ff;"></div>
+            <div class="palette-swatch" style="background:#f8eaff;"></div>
+            <div class="palette-swatch" style="background:#efd6ff;"></div>
+            <div class="palette-swatch" style="background:#dbb2ff;"></div>
+            <div class="palette-swatch" style="background:#c582ff;"></div>
+            <div class="palette-swatch" style="background:#ae52e3;"></div>
+            <div class="palette-swatch" style="background:#9330c8;"></div>
+            <div class="palette-swatch" style="background:#7a0dae;"></div>
+            <div class="palette-swatch" style="background:#600096; border-radius: 0 3px 3px 0;"></div>
           </div>
           <!-- Red / Error -->
           <div class="palette-row">
@@ -375,19 +375,19 @@
             <div class="palette-swatch" style="background:#7c6e00;"></div>
             <div class="palette-swatch" style="background:#5f5600; border-radius: 0 3px 3px 0;"></div>
           </div>
-          <!-- Blue / Informational -->
+          <!-- Sky Blue / Tertiary -->
           <div class="palette-row">
-            <span class="palette-label">Info</span>
+            <span class="palette-label">Tertiary</span>
             <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#f8f9ff;"></div>
-            <div class="palette-swatch" style="background:#e8eeff;"></div>
-            <div class="palette-swatch" style="background:#d5e3ff;"></div>
-            <div class="palette-swatch" style="background:#abc7ff;"></div>
-            <div class="palette-swatch" style="background:#7aabf8;"></div>
-            <div class="palette-swatch" style="background:#4d8ee0;"></div>
-            <div class="palette-swatch" style="background:#2474cc;"></div>
-            <div class="palette-swatch" style="background:#005bb6;"></div>
-            <div class="palette-swatch" style="background:#0044a1; border-radius: 0 3px 3px 0;"></div>
+            <div class="palette-swatch" style="background:#f5fbff;"></div>
+            <div class="palette-swatch" style="background:#dff4ff;"></div>
+            <div class="palette-swatch" style="background:#bdeaff;"></div>
+            <div class="palette-swatch" style="background:#72d6ff;"></div>
+            <div class="palette-swatch" style="background:#00c5f5;"></div>
+            <div class="palette-swatch" style="background:#00a8d4;"></div>
+            <div class="palette-swatch" style="background:#008cb4;"></div>
+            <div class="palette-swatch" style="background:#006f92;"></div>
+            <div class="palette-swatch" style="background:#005674; border-radius: 0 3px 3px 0;"></div>
           </div>
         </div>
         <p style="font-size: 0.72rem; color: var(--caption); margin-top: 0.7rem; letter-spacing: 0.02em;">Representative palette values. Exact brand hex values live in the Figma master file.</p>
@@ -423,8 +423,52 @@
         value updates and every component follows automatically.
       </p>
 
-      <div class="img-block img-block--short">
-        <span>[ Typography scale: eight sizes with semantic names, weights, and usage context ]</span>
+      <div style="margin: 1.8rem 0; border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.6rem 1.2rem; background: var(--surface2); border-bottom: 1px solid var(--border);">
+          <span class="mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--caption);">Token name</span>
+          <span class="mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--caption); text-align: right;">Size</span>
+          <span class="mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--caption); padding-left: 1.4rem;">Use context</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--text); line-height: 1;">Hero Title</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">42px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Onboarding surfaces, empty states</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--text); line-height: 1;">Greeting Title</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">32px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Dashboard headings, welcome screens</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
+          <span style="font-size: 1rem; font-weight: 500; color: var(--text); line-height: 1;">Page Title</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">28px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Section and view-level headings</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
+          <span style="font-size: 0.92rem; font-weight: 500; color: var(--text); line-height: 1;">Pane Header</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">20px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Panel and drawer titles</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
+          <span style="font-size: 0.86rem; font-weight: 500; color: var(--text); line-height: 1;">Subject Title</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">18px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Card headers, list group labels</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
+          <span style="font-size: 0.8rem; color: var(--text); line-height: 1;">Body Text</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">16px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Primary reading content, form labels</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
+          <span style="font-size: 0.74rem; color: var(--text); line-height: 1;">Metadata</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">14px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Supporting text, timestamps, tags</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; align-items: baseline;">
+          <span style="font-size: 0.68rem; color: var(--caption); line-height: 1;">Metadata Limited</span>
+          <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">12px</span>
+          <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Dense table data, axis labels, legal copy</span>
+        </div>
       </div>
     </section>
 
@@ -441,9 +485,13 @@
       </p>
       <p>
         We aligned on naming conventions, tier structure, and the mapping between Figma
-        Variables and CSS custom properties. We also aligned on the export format so that
-        when tokens changed in Figma, engineering could pull updates into the codebase
-        through a consistent process rather than through manual reconciliation.
+        Variables and CSS custom properties. For example,
+        <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">color.primary.default</code>
+        in Figma maps directly to
+        <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">--color-primary</code>
+        in the codebase. We also aligned on the export format so that when tokens changed
+        in Figma, engineering could pull updates through a consistent pipeline rather than
+        manual reconciliation.
       </p>
 
       <div class="callout">
@@ -540,25 +588,45 @@
 
     <!-- REFLECTION -->
     <section class="case-section">
-      <h2>What I would do differently</h2>
-      <p>
-        I would instrument the system earlier. We had qualitative signals that things were
-        faster, but no baseline measurement to compare against. Tracking component reuse rate,
-        time-to-spec for new product surfaces, and engineering token adoption from the start
-        would have made the impact concrete rather than felt.
-      </p>
-      <p>
-        I would also involve a second designer in the component documentation earlier.
-        Documentation written solely by the person who built the system tends to assume
-        too much context. A second perspective during the writing phase catches the gaps
-        that only reveal themselves during onboarding.
-      </p>
-      <p>
-        Finally, I would establish a lightweight governance process from week one. The ad-hoc
-        Slack channel worked, but a simple intake form and a recurring review slot would have
-        made the system feel like shared infrastructure rather than something one person owned.
-        Systems that feel owned by one person do not outlast that person.
-      </p>
+      <h2>What I learned building this from scratch</h2>
+      <div class="process-timeline">
+        <div class="process-step">
+          <span class="process-step-n">01</span>
+          <div class="process-step-body">
+            <h3>Naming is half the work</h3>
+            <p>The technical architecture is learnable. Finding names that are meaningful to both designers and engineers is where the real design thinking happens. Getting this right early prevented weeks of rework. Getting it wrong would have meant two parallel vocabularies that slowly drifted apart.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">02</span>
+          <div class="process-step-body">
+            <h3>Three-tier abstraction is non-negotiable</h3>
+            <p>Systems that skip the semantic layer and map values directly to components collapse under the weight of any theme change. The indirection layer is not overhead. It is the mechanism that makes the system worth having. Every hour spent on it saves days of future manual work.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">03</span>
+          <div class="process-step-body">
+            <h3>Documentation is a product deliverable</h3>
+            <p>The system is not complete when the components are built. It is complete when a new designer can onboard independently without asking for help. That bar is harder to hit than it sounds, and treating documentation as an afterthought makes it impossible.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">04</span>
+          <div class="process-step-body">
+            <h3>The audit is the brief</h3>
+            <p>The most valuable work in the project was cataloguing the existing hardcoded values before writing a single proposal. The audit defined the true shape of the problem. Without it, the architecture would have been designed for the problem I assumed, not the one that actually existed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 2rem;">
+        <p>
+          "Design systems work is invisible when it's working. The sign of success is not when
+          designers praise the library. It's when engineers stop asking designers to clarify
+          what a color means."
+        </p>
+      </div>
     </section>
 
     <hr class="divider">
