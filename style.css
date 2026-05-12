@@ -279,6 +279,7 @@ strong { color: var(--text); font-weight: 500; }
   align-items: center;
   min-height: calc(100vh - 9rem);
   padding-bottom: 5rem;
+  position: relative;
   background: radial-gradient(
     ellipse 65% 70% at 28% 52%,
     rgba(200, 52, 106, 0.028) 0%,
@@ -290,6 +291,7 @@ strong { color: var(--text); font-weight: 500; }
 /* ─── HERO AMBIENT GLOW ───────────────────────────────────────── */
 .hero-text {
   position: relative;
+  z-index: 1;
 }
 
 /* Lift text above glow layer */
@@ -301,42 +303,41 @@ strong { color: var(--text); font-weight: 500; }
   z-index: 1;
 }
 
+/* Glow container anchored to full hero section */
 .hero-glow-container {
   position: absolute;
-  top: -160px; left: -160px;
-  width: calc(100% + 320px);
-  height: calc(100% + 320px);
+  inset: 0;
   pointer-events: none;
   z-index: 0;
   opacity: 0;
   transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.hero-text:hover .hero-glow-container { opacity: 1; }
+.hero:hover .hero-glow-container { opacity: 1; }
 
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(100px);
   will-change: transform;
 }
 
 .hero-glow--1 {
-  width: 480px; height: 480px;
-  background: radial-gradient(circle, rgba(200, 52, 106, 0.16) 0%, transparent 68%);
-  top: 70px; left: 20px;
+  width: 680px; height: 680px;
+  background: radial-gradient(circle, rgba(200, 52, 106, 0.13) 0%, transparent 65%);
+  top: -120px; left: -120px;
 }
 
 .hero-glow--2 {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(192, 160, 224, 0.13) 0%, transparent 68%);
-  top: 36%; left: 34%;
+  width: 580px; height: 580px;
+  background: radial-gradient(circle, rgba(192, 160, 224, 0.11) 0%, transparent 65%);
+  top: 15%; left: 18%;
 }
 
 .hero-glow--3 {
-  width: 360px; height: 360px;
-  background: radial-gradient(circle, rgba(138, 184, 210, 0.10) 0%, transparent 68%);
-  bottom: 50px; right: 10px;
+  width: 540px; height: 540px;
+  background: radial-gradient(circle, rgba(138, 184, 210, 0.09) 0%, transparent 65%);
+  bottom: -80px; right: -60px;
 }
 
 .hero-eyebrow {
@@ -930,11 +931,16 @@ strong { color: var(--text); font-weight: 500; }
 /* ─── CASE SECTIONS ───────────────────────────────────────────── */
 .case-section {
   padding-top: 4.8rem;
+  padding-bottom: 2.8rem;
   margin-bottom: 0;
   border-top: 1px solid var(--border);
 }
 
-.case-section:last-of-type { padding-bottom: 1.5rem; }
+/* Use on the section immediately following a process-timeline to avoid double border */
+.case-section--no-rule {
+  border-top: none;
+  padding-top: 3.6rem;
+}
 
 .case-section h2 {
   margin-bottom: 1.6rem;
