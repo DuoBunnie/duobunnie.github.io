@@ -1,5 +1,7 @@
 (function () {
 
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
   /* ─── CUSTOM CURSOR ────────────────────────────────────────── */
   if (!window.matchMedia('(hover: none)').matches) {
     document.body.classList.add('has-cursor');
@@ -41,8 +43,6 @@
       }));
     }).observe(document.body, { childList: true, subtree: true });
 
-    function lerp(a, b, t) { return a + (b - a) * t; }
-
     (function animateRing() {
       ringX = lerp(ringX, mouseX, 0.13);
       ringY = lerp(ringY, mouseY, 0.13);
@@ -67,7 +67,6 @@
 
     revealEls.forEach((el) => revealObs.observe(el));
   } else {
-    // Fallback: show immediately if IntersectionObserver unavailable
     revealEls.forEach((el) => el.classList.add('visible'));
   }
 
@@ -102,5 +101,50 @@
 
     counterEls.forEach((el) => counterObs.observe(el));
   }
+
+  /* ─── HERO AMBIENT ORBS ────────────────────────────────────── */
+  const heroSection = document.querySelector('.hero');
+  const heroGlows   = document.querySelectorAll('.hero-glow');
+
+  if (heroSection && heroGlows.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const orbConfig = [
+      { floatAx: 28, floatAy: 22, floatSpeed: 0.00055, floatPhase: 0,              parallaxX:  50, parallaxY:  38 },
+      { floatAx: 20, floatAy: 30, floatSpeed: 0.00042, floatPhase: Math.PI * 0.65, parallaxX: -42, parallaxY: -32 },
+      { floatAx: 24, floatAy: 18, floatSpeed: 0.00062, floatPhase: Math.PI * 1.3,  parallaxX:  32, parallaxY:  48 }
+    ];
+
+    let targetMx = 0, targetMy = 0, smoothMx = 0, smoothMy = 0;
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const r = heroSection.getBoundingClientRect();
+      targetMx = (e.clientX - r.left)  / r.width  - 0.5;
+      targetMy = (e.clientY - r.top)   / r.height - 0.5;
+    });
+
+    heroSection.addEventListener('mouseleave', () => { targetMx = 0; targetMy = 0; });
+
+    (function animateGlows(timestamp) {
+      smoothMx = lerp(smoothMx, targetMx, 0.032);
+      smoothMy = lerp(smoothMy, targetMy, 0.032);
+
+      heroGlows.forEach((orb, i) => {
+        const c  = orbConfig[i];
+        const fx = Math.sin(timestamp * c.floatSpeed + c.floatPhase) * c.floatAx;
+        const fy = Math.cos(timestamp * c.floatSpeed * 0.75 + c.floatPhase) * c.floatAy;
+        orb.style.transform = `translate(${fx + smoothMx * c.parallaxX}px, ${fy + smoothMy * c.parallaxY}px)`;
+      });
+
+      requestAnimationFrame(animateGlows);
+    })(performance.now());
+  }
+
+  /* ─── CARD SHIMMER ─────────────────────────────────────────── */
+  document.querySelectorAll('.project-feature').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--card-mx', ((e.clientX - r.left) / r.width  * 100) + '%');
+      card.style.setProperty('--card-my', ((e.clientY - r.top)  / r.height * 100) + '%');
+    });
+  });
 
 })();
