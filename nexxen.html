@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexxen DSP — Duo Xu</title>
-  <meta name="description" content="How I rebuilt Nexxen's design system from primitives to product: a 3-tier token architecture, 200+ components, and a foundation that made dark mode and white-label retheming possible.">
+  <title>Nexxen DSP Design System — Duo Xu</title>
+  <meta name="description" content="How I modularized and tokenized Nexxen's design system: a 3-tier token architecture across seven tonal palettes, enabling dark mode, white-label theming, and a single source of truth for a programmatic advertising platform.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +12,7 @@
   <nav>
     <a href="index.html" class="nav-logo">Duo Xu</a>
     <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="exploration.html">Exploration</a></li>
       <li><a href="resume.pdf" target="_blank" rel="noopener" class="nav-cta">Resume</a></li>
@@ -22,12 +23,13 @@
 
     <!-- CASE HEADER -->
     <section style="margin-bottom: 0;">
-      <p class="mono" style="margin-bottom: 1rem;">Case Study &mdash; 2026</p>
-      <h1 style="max-width: 640px;">Nexxen DSP: Rebuilding a Foundation for Scale</h1>
+      <p class="mono" style="margin-bottom: 1rem;">Case Study &middot; 2025&ndash;2026</p>
+      <h1 style="max-width: 680px;">Nexxen DSP: Rebuilding the Token Foundation for a Platform at Scale</h1>
       <p style="margin-top: 1.2rem; max-width: 580px; font-size: 0.98rem;">
-        A programmatic advertising platform with no design system. Engineers hard-coding
-        values, designers duplicating work, product surfaces drifting apart. I rebuilt
-        the system from primitives up so the team could ship consistently and fast.
+        I modularized and tokenized Nexxen's entire design language from scratch. The result
+        was a 3-tier token architecture across seven tonal palettes, an eight-size typography
+        system, and a single Figma master file that made dark mode and white-label retheming
+        finally possible without touching a single component.
       </p>
     </section>
 
@@ -42,8 +44,8 @@
         <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Nexxen</p>
       </div>
       <div class="case-meta-item">
-        <span class="mono">Platform</span>
-        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Web application (Figma)</p>
+        <span class="mono">Scope</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Design System &middot; Token Architecture</p>
       </div>
       <div class="case-meta-item">
         <span class="mono">Timeline</span>
@@ -55,233 +57,340 @@
     <div class="impact-row">
       <div class="impact-box">
         <span class="impact-n">200+</span>
-        <span class="impact-l">Components rebuilt</span>
-      </div>
-      <div class="impact-box">
-        <span class="impact-n">40+</span>
-        <span class="impact-l">Hard-coded values eliminated</span>
+        <span class="impact-l">Components rebuilt on tokens</span>
       </div>
       <div class="impact-box">
         <span class="impact-n">7</span>
-        <span class="impact-l">Color palettes supported</span>
+        <span class="impact-l">Tonal palettes replacing 40+ hardcoded values</span>
       </div>
       <div class="impact-box">
-        <span class="impact-n">1</span>
-        <span class="impact-l">Source of truth for all themes</span>
+        <span class="impact-n">3</span>
+        <span class="impact-l">Themes from a single source file</span>
+      </div>
+      <div class="impact-box">
+        <span class="impact-n">2 hrs</span>
+        <span class="impact-l">To ship dark mode once tokens landed</span>
       </div>
     </div>
 
     <div class="img-block">
-      <span>[ Hero: Nexxen design system component library overview ]</span>
+      <span>[ Design Token Master File: tonal palette overview across seven color scales ]</span>
     </div>
 
     <!-- CONTEXT -->
     <section class="case-section">
-      <h2>The problem with organic growth</h2>
+      <h2>The product was scaling faster than its design language</h2>
       <p>
-        Nexxen's DSP had grown fast. The product surface had expanded, the team had grown,
-        and the design had kept up by adding. New components when something was needed. New
-        colors when branding evolved. Hard-coded values because there was no other option.
+        Nexxen's DSP is a programmatic advertising platform used by agencies and brands to
+        plan, buy, and measure media. The product had grown significantly over several years,
+        and the design had kept pace the only way it could in a fast-moving team: by adding.
+        New components when something was needed. New colors when the brand evolved. Hard-coded
+        values because there was no other infrastructure.
       </p>
       <p>
-        By the time I joined, the result was a system in name only. Buttons that looked
-        similar but weren't the same component. Color values that appeared in 40+ places
-        with no single source. Dark mode had been requested for two product cycles but no
-        one knew how to implement it without touching every screen by hand. White-label
-        retheming for enterprise clients was theoretically on the roadmap and practically
-        impossible.
-      </p>
-      <p>
-        The system was not broken. It was just not a system. It was a collection of past
-        decisions with no organizing logic underneath them.
+        By the time I was brought in to lead this effort, the system had accumulated over 40
+        unique hard-coded color values with no unified naming convention. Dark mode had been
+        a product request for two cycles but no one knew how to implement it without touching
+        every screen by hand. White-label retheming for enterprise clients was theoretically
+        on the roadmap and practically impossible. The design system was not broken. It had
+        never been built.
       </p>
 
       <div class="callout">
         <p>
-          "The question was never whether to fix it. The question was whether to patch
-          the existing components or start from the token layer. Patching would have
-          been faster. Starting from tokens was the only way to make the problem go away."
+          "The problem was not the individual color choices. Most of them were actually good.
+          The problem was the absence of structure underneath them. Without a token layer,
+          every new surface had to make the same decisions from scratch, and every brand change
+          had to be applied manually to hundreds of components."
         </p>
       </div>
+
+      <p>
+        The business case was clear once you traced the costs: design velocity slowed by
+        repeated decision-making, engineering velocity slowed by inconsistent specs, enterprise
+        features blocked by the absence of a theming infrastructure. This was not a design
+        problem. It was a product problem that design had the unique ability to fix.
+      </p>
     </section>
 
     <!-- AUDIT -->
     <section class="case-section">
       <h2>Audit before architecture</h2>
       <p>
-        Before proposing anything, I audited the existing system: every component, every
-        color value, every spacing instance across the three main product surfaces. The
-        goal was to understand the actual scope before committing to an approach.
+        Before proposing anything, I ran a full audit of every component, every color value,
+        and every spacing instance across the three main product surfaces. The goal was to
+        understand actual scope before committing to an approach. Pitching a solution before
+        the audit would have been guessing.
       </p>
       <p>
-        The audit surfaced 40+ unique hard-coded color values where there should have been
-        fewer than 15 semantic tokens. Spacing was applied inline with no shared scale.
-        Typography had six variations of the same body style. Components that looked
-        identical to users were built differently in Figma depending on who made them.
+        The audit surfaced the hard numbers: 40+ unique hard-coded color values where there
+        should have been fewer than 15 semantic tokens. Typography had six variations of the
+        same body style, defined differently depending on who had last touched that surface.
+        Spacing was applied inline with no shared scale. Components that looked identical to
+        users were built completely differently in Figma depending on who made them.
       </p>
 
       <div class="img-block img-block--short">
-        <span>[ Audit output: color value inventory and duplication map ]</span>
+        <span>[ Audit output: color value inventory and duplication map across product surfaces ]</span>
       </div>
 
       <p>
-        The audit also revealed something useful: despite the inconsistency, about 60% of
-        the visual decisions were actually correct. The existing color choices, type scale,
-        and spacing rhythm were solid. The problem was not the decisions. It was the lack
-        of structure that made them impossible to maintain.
+        The audit also revealed something useful for the pitch: despite the inconsistency,
+        roughly 60% of the visual decisions were already correct. The existing color choices,
+        type scale, and spacing rhythm were solid. This meant I was not proposing to throw
+        everything away. I was proposing to give existing good decisions a structure that
+        would make them maintainable, extensible, and themeable.
+      </p>
+      <p>
+        That reframe changed the conversation with stakeholders. The proposal became: take
+        the design language you already have and make it work for every future surface you
+        want to build. Not starting over. Making permanent.
       </p>
     </section>
 
-    <!-- ARCHITECTURE -->
+    <!-- TOKEN ARCHITECTURE -->
     <section class="case-section">
       <h2>The token architecture</h2>
       <p>
-        I designed a 3-tier token structure in Figma using Figma Variables, aligned with
-        the engineering team's token naming conventions so design and code could stay in sync.
+        The core of the system is a 3-tier token structure built in Figma Variables, designed
+        in parallel with engineering's naming conventions so design and code could stay in
+        sync from day one.
       </p>
 
       <div style="display: flex; flex-direction: column; gap: 1rem; margin: 1.8rem 0;">
-        <div style="padding: 1.2rem 1.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: 3px;">
-          <p class="mono" style="margin-bottom: 0.5rem; color: var(--accent);">Tier 1 &mdash; Global tokens</p>
-          <p style="font-size: 0.88rem;">
-            The raw palette. Every literal color, every spacing value, every type size.
-            These are never used directly in components. They exist only to feed the
-            semantic layer. Changing a global token cascades everywhere.
+        <div style="padding: 1.3rem 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px;">
+          <p class="mono" style="margin-bottom: 0.55rem; color: var(--accent); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;">Tier 1 &middot; Primitives</p>
+          <p style="font-size: 0.88rem; line-height: 1.78;">
+            The raw palette. Every literal color value in the system, organized into seven
+            tonal scales on a 0&ndash;100 range: Purple, Neutral, Teal, Red, Green, Yellow, and Blue.
+            Each scale uses non-linear stops at 100, 99, 95, 90, 80, 70, 60, 50, 40, and 30,
+            mirroring Material Design's palette structure. The 99 and 95 stops give fine-grained
+            control at the light end of the scale where most surfaces live. Primitives are named
+            by position, never by intent.
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">purple.40</code>
+            is a color, not a decision. No component references a primitive directly.
           </p>
         </div>
-        <div style="padding: 1.2rem 1.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: 3px;">
-          <p class="mono" style="margin-bottom: 0.5rem; color: var(--accent);">Tier 2 &mdash; Semantic tokens</p>
-          <p style="font-size: 0.88rem;">
-            Named by intent, not by value. <code style="font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.3rem; border-radius: 2px;">color.background.primary</code> rather than
-            <code style="font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.3rem; border-radius: 2px;">#FFFFFF</code>.
-            This is the layer that makes theming possible. Swap the global values that
-            semantic tokens point to and the entire product retheems without touching components.
+        <div style="padding: 1.3rem 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px;">
+          <p class="mono" style="margin-bottom: 0.55rem; color: var(--accent); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;">Tier 2 &middot; Semantic tokens</p>
+          <p style="font-size: 0.88rem; line-height: 1.78;">
+            Named by intent, not by value.
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">color.primary</code>,
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">color.on-primary</code>,
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">color.surface</code>,
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">color.error</code>.
+            Semantic tokens point to primitives. Changing which primitive a semantic token
+            points to retranslates that intent across every component simultaneously.
+            This is the layer that makes theming possible. Swap the primitives that semantic
+            tokens reference and the entire product rethemes without touching a single component.
           </p>
         </div>
-        <div style="padding: 1.2rem 1.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: 3px;">
-          <p class="mono" style="margin-bottom: 0.5rem; color: var(--accent);">Tier 3 &mdash; Component tokens</p>
-          <p style="font-size: 0.88rem;">
+        <div style="padding: 1.3rem 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px;">
+          <p class="mono" style="margin-bottom: 0.55rem; color: var(--accent); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;">Tier 3 &middot; Component tokens</p>
+          <p style="font-size: 0.88rem; line-height: 1.78;">
             Scoped to specific components where semantic tokens need further specificity.
-            A button's hover state background is different from a card's hover state
-            background, even if both use the same semantic family. Component tokens
-            hold that nuance without breaking the cascade.
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">button.bg.default</code>,
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">button.bg.hover</code>,
+            <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">toast.error.bg</code>.
+            A button's hover state and a card's hover state draw from the same semantic
+            family but need different values. Component tokens hold that nuance without
+            breaking the cascade, and their names map directly to CSS variable names in
+            the engineering component library.
           </p>
         </div>
       </div>
 
       <div class="img-block">
-        <span>[ Token architecture diagram: global to semantic to component cascade ]</span>
+        <span>[ Token architecture: cascade diagram from primitive to semantic to component ]</span>
       </div>
     </section>
 
-    <!-- COMPONENTS -->
+    <!-- COLOR SYSTEM -->
+    <section class="case-section">
+      <h2>Seven tonal palettes, one system</h2>
+      <p>
+        The color system is built on seven tonal palettes: Purple (primary), Neutral,
+        Teal (secondary), Red (error), Green (success), Yellow (warning), and Blue
+        (informational). Each palette runs a 0&ndash;100 perceptual luminance scale with stops
+        at 100, 99, 95, 90, 80, 70, 60, 50, 40, and 30.
+      </p>
+      <p>
+        The non-linear stops were intentional. The 99 and 95 positions exist specifically
+        to give subtle surface-level differentiation at the light end of the scale, where
+        most of a data-dense UI lives. Without those stops, light backgrounds either collapse
+        into white or make too large a jump to the next shade. In a platform where surface
+        hierarchy does significant information-organization work, that granularity matters.
+      </p>
+
+      <div class="img-block img-block--short">
+        <span>[ Tonal palette spread: seven scales showing stop distribution and semantic role assignments ]</span>
+      </div>
+
+      <p>
+        The palette-level naming uses semantic abstraction:
+        <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">primary</code>
+        rather than
+        <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">purple</code>.
+        This was a deliberate product decision: if Nexxen's brand ever changes its primary
+        color, the semantic layer absorbs that change. Nothing downstream needs to know that
+        primary used to mean purple. The system is built to outlast the brand decisions made
+        when it was created.
+      </p>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section class="case-section">
+      <h2>Typography: eight sizes, semantic names</h2>
+      <p>
+        The typography system uses eight named sizes with context-based semantic naming.
+        Sizes range from Metadata Limited at 12px (dense data labels and table metadata)
+        to Hero Title at 42px (top-level dashboard headings and empty states). Every size
+        in between is named for its intended context, not its raw value.
+      </p>
+      <p>
+        The advantage is the same as semantic color tokens. Components reference
+        <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">type.body.default</code>
+        rather than
+        <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">14px</code>.
+        When the type scale needs to change for a new platform density requirement, the token
+        value updates and every component follows automatically.
+      </p>
+
+      <div class="img-block img-block--short">
+        <span>[ Typography scale: eight sizes with semantic names, weights, and usage context ]</span>
+      </div>
+    </section>
+
+    <!-- ENGINEERING ALIGNMENT -->
+    <section class="case-section">
+      <h2>Aligned with engineering from day one</h2>
+      <p>
+        The first two weeks were spent with the engineering team, not in Figma. I needed
+        to understand how the existing codebase was structured before designing a naming
+        convention, because the system only works if design and code speak the same language.
+        A token structure that does not map to the engineering token structure creates a
+        translation cost on every handoff. That cost compounds across every component and
+        every sprint.
+      </p>
+      <p>
+        We aligned on naming conventions, tier structure, and the mapping between Figma
+        Variables and CSS custom properties. We also aligned on the export format so that
+        when tokens changed in Figma, engineering could pull updates into the codebase
+        through a consistent process rather than through manual reconciliation.
+      </p>
+
+      <div class="callout">
+        <p>
+          "The naming convention was the most important design decision in this project. It
+          determined whether the system would stay in sync with engineering or drift apart
+          the moment handoffs started. We decided together, before I wrote a single token."
+        </p>
+      </div>
+
+      <p>
+        Once the core component set was stable, I ran onboarding sessions with the other
+        designers. The goal was not to teach a tool. It was to explain the mental model,
+        so designers could extend the system correctly rather than work around it. A shared
+        Slack channel for component requests and questions meant the system could evolve
+        without me as the single point of contact. By the end, two other designers had
+        contributed new components that followed the token structure correctly without needing
+        my review. That was the real measure of success.
+      </p>
+    </section>
+
+    <!-- REBUILDING COMPONENTS -->
     <section class="case-section">
       <h2>Rebuilding the component library</h2>
       <p>
         With the token architecture defined and validated with engineering, I rebuilt the
-        component library from the ground up. The principle was: every component consumes
-        tokens, never raw values. If a component needed a value that wasn't in the token
-        system, that was a signal to add a token, not to hard-code.
+        component library from scratch. Every component consumes tokens, never raw values.
+        If a component needed a value that was not in the token system, that was a signal
+        to add a token, not to hard-code.
       </p>
       <p>
-        I prioritized rebuilding in order of usage frequency: form elements and data tables
-        first (they appear on almost every screen in a DSP), then navigation and layout
-        components, then specialty components. Each component was built with all states
-        covered: default, hover, focused, disabled, error, and loading where applicable.
+        I prioritized by usage frequency: form elements and data tables first because they
+        appear on almost every screen in a DSP, then navigation and layout components, then
+        specialty components. Each component was built with full state coverage: default,
+        hover, focused, disabled, error, and loading where applicable.
       </p>
       <p>
-        I also wrote documentation inline in Figma for each component: when to use it, when
-        not to, and what it maps to in the engineering component library. This was not a
-        Confluence document. It was part of the component itself, visible when any designer
-        opened it.
+        Documentation lives inline in Figma, not in a separate Confluence page. Usage
+        guidance, edge cases, and token annotations are visible the moment any designer
+        opens a component. Documentation in a separate document gets ignored. Documentation
+        that is part of the component gets used.
       </p>
 
       <div class="img-block">
-        <span>[ Component library: form elements with all states ]</span>
-      </div>
-
-      <div class="img-block img-block--short">
-        <span>[ Data table component with state coverage and token annotations ]</span>
+        <span>[ Component library: form elements and data tables with full state coverage and token annotations ]</span>
       </div>
     </section>
 
-    <!-- THEMING -->
+    <!-- THEMING PAYOFF -->
     <section class="case-section">
-      <h2>Dark mode and white-label in practice</h2>
+      <h2>Dark mode in two hours</h2>
       <p>
         Once the token architecture was in place, dark mode was not a project. It was a
-        two-hour task. I created a dark mode global token set, mapped it to the existing
-        semantic tokens, and every component switched without a single component-level
-        change. That moment was the clearest proof that the architecture had worked.
+        two-hour task.
       </p>
       <p>
-        White-label retheming for Nexxen's enterprise clients followed the same pattern.
-        A client's brand palette mapped into a global token set, and their theme cascaded
-        through the entire product automatically. What had been scoped as a multi-week
-        engineering effort became a configuration task.
+        I created a dark mode primitive set, mapped it to the existing semantic tokens via
+        a new Figma Variable mode, and every component in the library switched without a
+        single component-level change. The semantic layer absorbed the entire swap. Two
+        cycles of dark mode requests had been blocked for want of exactly this infrastructure.
+        After the rebuild, it shipped in an afternoon.
       </p>
 
       <div class="img-block img-block--short">
-        <span>[ Side by side: default theme, dark mode, white-label client theme ]</span>
+        <span>[ Side by side: default light theme, dark mode, and white-label enterprise theme ]</span>
       </div>
-    </section>
 
-    <!-- COLLABORATION -->
-    <section class="case-section">
-      <h2>How I worked with the team</h2>
       <p>
-        The most important collaboration in this project was with engineering. Design systems
-        only work if engineers use them, and they only use them if the system maps to how
-        they build. I spent the first two weeks aligning the Figma token naming conventions
-        with the engineering team's existing token structure so that design and code were
-        speaking the same language.
-      </p>
-      <p>
-        I ran onboarding sessions with the other designers on the team once the core
-        component set was stable. The goal was not to teach them a tool. It was to explain
-        the mental model: why the architecture was structured the way it was, so they could
-        extend it correctly rather than work around it. I also set up a shared Slack channel
-        for component requests and questions so the system could evolve without me being
-        the only person who could touch it.
-      </p>
-      <p>
-        By the end of the project, two other designers had contributed new components that
-        followed the token structure correctly without my review. That was the real measure
-        of success.
+        White-label retheming for Nexxen's enterprise clients followed the same pattern.
+        A client's brand palette mapped into a primitive set, and their theme cascaded
+        through the entire product via Figma Variable mode switching. What had been scoped
+        as a multi-week engineering project became a configuration task. The architecture
+        had been designed to make this possible from the start.
       </p>
     </section>
 
-    <!-- OUTCOME -->
+    <!-- OUTCOMES -->
     <section class="case-section">
-      <h2>Outcome</h2>
+      <h2>What the system made possible</h2>
       <p>
-        The rebuilt design system eliminated the bottlenecks that had slowed the team for
-        two product cycles. Dark mode shipped. White-label retheming became a configuration
-        task. New product surfaces could be built from existing components rather than
-        rebuilt from scratch.
+        The rebuilt system eliminated the bottlenecks that had slowed the team for two
+        product cycles. Dark mode shipped. White-label retheming became configuration.
+        New product surfaces could be built from existing components without re-deriving
+        color and spacing decisions from scratch each time.
       </p>
       <p>
-        The less visible outcome was the change in how the team worked. Designers stopped
-        making one-off decisions about color and spacing. Engineers stopped receiving specs
-        with hard-coded values. Handoffs became faster because the shared language was
-        already there.
+        The less visible outcome was the change in team workflow. Designers stopped making
+        one-off decisions about color and spacing because the system made the right decision
+        available by default. Engineers stopped receiving specs with hard-coded values because
+        the token names were in the components. Handoffs became faster because the shared
+        language already existed.
       </p>
     </section>
 
     <!-- REFLECTION -->
     <section class="case-section">
-      <h2>What I'd do differently</h2>
+      <h2>What I would do differently</h2>
       <p>
         I would instrument the system earlier. We had qualitative signals that things were
-        faster, but I didn't have a baseline measurement of how long specific design tasks
-        took before the rebuild versus after. Measuring component reuse rate and time-to-spec
-        for new surfaces would have made the impact concrete instead of felt.
+        faster, but no baseline measurement to compare against. Tracking component reuse rate,
+        time-to-spec for new product surfaces, and engineering token adoption from the start
+        would have made the impact concrete rather than felt.
       </p>
       <p>
-        I'd also involve a second designer in the component documentation from the start.
-        Documentation written by the person who built the system is often too close to the
-        reasoning to be useful for someone new. A second perspective during the writing would
-        have caught the gaps.
+        I would also involve a second designer in the component documentation earlier.
+        Documentation written solely by the person who built the system tends to assume
+        too much context. A second perspective during the writing phase catches the gaps
+        that only reveal themselves during onboarding.
+      </p>
+      <p>
+        Finally, I would establish a lightweight governance process from week one. The ad-hoc
+        Slack channel worked, but a simple intake form and a recurring review slot would have
+        made the system feel like shared infrastructure rather than something one person owned.
+        Systems that feel owned by one person do not outlast that person.
       </p>
     </section>
 
@@ -291,7 +400,7 @@
     <a href="atlas.html" class="next-project">
       <div>
         <span class="next-project-label">Next project</span>
-        <span class="next-project-title">ATLAS &mdash; Special Education Case Management</span>
+        <span class="next-project-title">ATLAS: Special Education Case Management</span>
       </div>
       <span class="next-project-arrow">&rarr;</span>
     </a>
@@ -303,7 +412,6 @@
     <ul class="footer-links">
       <li><a href="mailto:hello@duobunnie.com">Email</a></li>
       <li><a href="https://linkedin.com/in/duobunnie" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/duobunnie" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
   </footer>
 
