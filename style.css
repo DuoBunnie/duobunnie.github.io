@@ -492,7 +492,7 @@ strong { color: var(--text); font-weight: 500; }
   background: var(--surface);
   box-shadow: var(--shadow-sm);
   transition: border-color 0.25s, box-shadow 0.28s;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.8rem;
   position: relative;
 }
 
@@ -814,7 +814,7 @@ strong { color: var(--text); font-weight: 500; }
 }
 
 /* ─── IMPACT BOXES ────────────────────────────────────────────── */
-.impact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; }
+.impact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 2.5rem 0 0; }
 
 .impact-box {
   flex: 1;
@@ -848,10 +848,10 @@ strong { color: var(--text); font-weight: 500; }
 .img-block {
   background: var(--surface2);
   border: 1px dashed var(--border-hover);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 5rem 2rem;
   text-align: center;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 }
 
 .img-block span {
@@ -864,7 +864,57 @@ strong { color: var(--text); font-weight: 500; }
 
 .img-block--short { padding: 3rem 2rem; }
 
-/* ─── CASE STUDY ──────────────────────────────────────────────── */
+/* ─── CASE STUDY HEADER ───────────────────────────────────────── */
+.case-header {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.case-header h1 {
+  font-size: 3rem;
+  margin-top: 0.9rem;
+  line-height: 1.06;
+  letter-spacing: -0.8px;
+  max-width: none;
+}
+
+.case-header-desc {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.88;
+  color: var(--body);
+}
+
+/* Cover image — between header text and meta strip */
+.case-cover {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  background: var(--surface2);
+  border: 1px dashed var(--border-hover);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.case-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.case-cover span {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  color: var(--caption);
+  text-transform: uppercase;
+}
+
+/* ─── CASE STUDY META & METRICS ───────────────────────────────── */
 .case-meta {
   display: flex;
   gap: 2.4rem;
@@ -872,13 +922,25 @@ strong { color: var(--text); font-weight: 500; }
   padding: 1.8rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  margin: 2rem 0 3rem;
+  margin: 3.5rem 0 0;
 }
 
 .case-meta-item { display: flex; flex-direction: column; gap: 0.35rem; }
 
-.case-section { margin-bottom: 3.2rem; }
-.case-section h2 { margin-bottom: 1.2rem; }
+/* ─── CASE SECTIONS ───────────────────────────────────────────── */
+.case-section {
+  padding-top: 4.8rem;
+  margin-bottom: 0;
+  border-top: 1px solid var(--border);
+}
+
+.case-section:last-of-type { padding-bottom: 1.5rem; }
+
+.case-section h2 {
+  margin-bottom: 1.6rem;
+  font-size: 1.65rem;
+  letter-spacing: -0.3px;
+}
 
 /* ─── PROCESS TIMELINE ────────────────────────────────────────── */
 .process-timeline {
