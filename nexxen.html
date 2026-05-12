@@ -148,6 +148,59 @@
       </p>
     </section>
 
+    <!-- PROCESS TIMELINE -->
+    <section class="case-section">
+      <h2>Six-stage process</h2>
+      <p>
+        The system was built in six sequential stages, each one a prerequisite for the next.
+        Skipping ahead would have meant building on an unstable foundation.
+      </p>
+      <div class="process-timeline">
+        <div class="process-step">
+          <span class="process-step-n">01</span>
+          <div class="process-step-body">
+            <h3>Audit</h3>
+            <p>Catalogued every existing color value, spacing instance, typography style, and component state across the three main product surfaces. Built the evidence base for the architecture proposal.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">02</span>
+          <div class="process-step-body">
+            <h3>Primitives</h3>
+            <p>Created seven tonal palettes on a 0&ndash;100 luminance scale with no semantic meaning attached. Pure values only. These are the raw material the rest of the system references.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">03</span>
+          <div class="process-step-body">
+            <h3>Semantic tokens</h3>
+            <p>Assigned specific palette stops to named roles: primary, on-primary, surface, error, and so on. This is the layer that makes theming possible and the layer components reference directly.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">04</span>
+          <div class="process-step-body">
+            <h3>Typography</h3>
+            <p>Established an eight-size scale with context-based semantic naming from Metadata Limited (12px) to Hero Title (42px). Weights and line heights normalized across all sizes.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">05</span>
+          <div class="process-step-body">
+            <h3>System layers</h3>
+            <p>Defined surface hierarchy, graph and data visualization color assignments, and interaction state standards (hover, focus, disabled, error, loading) across every component category.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-step-n">06</span>
+          <div class="process-step-body">
+            <h3>Documentation</h3>
+            <p>Built versioned living documentation directly inside Figma, inline with each component. Usage guidance, edge cases, and token annotations available to any designer without leaving the file.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- TOKEN ARCHITECTURE -->
     <section class="case-section">
       <h2>The token architecture</h2>
@@ -222,8 +275,122 @@
         hierarchy does significant information-organization work, that granularity matters.
       </p>
 
-      <div class="img-block img-block--short">
-        <span>[ Tonal palette spread: seven scales showing stop distribution and semantic role assignments ]</span>
+      <!-- Tonal palette swatches -->
+      <div style="margin: 1.8rem 0;">
+        <div style="display: grid; grid-template-columns: 5rem repeat(10, 1fr); gap: 0; margin-bottom: 0.35rem; padding-left: 0;">
+          <span></span>
+          <span class="palette-stop-label">100</span>
+          <span class="palette-stop-label">99</span>
+          <span class="palette-stop-label">95</span>
+          <span class="palette-stop-label">90</span>
+          <span class="palette-stop-label">80</span>
+          <span class="palette-stop-label">70</span>
+          <span class="palette-stop-label">60</span>
+          <span class="palette-stop-label">50</span>
+          <span class="palette-stop-label">40</span>
+          <span class="palette-stop-label">30</span>
+        </div>
+        <div class="palette-grid">
+          <!-- Purple / Primary -->
+          <div class="palette-row">
+            <span class="palette-label">Primary</span>
+            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#fdf8ff;"></div>
+            <div class="palette-swatch" style="background:#f0e5ff;"></div>
+            <div class="palette-swatch" style="background:#e2d0ff;"></div>
+            <div class="palette-swatch" style="background:#c5a8ff;"></div>
+            <div class="palette-swatch" style="background:#a87ffc;"></div>
+            <div class="palette-swatch" style="background:#8c55e9;"></div>
+            <div class="palette-swatch" style="background:#7030ce;"></div>
+            <div class="palette-swatch" style="background:#5610b2;"></div>
+            <div class="palette-swatch" style="background:#3e0096; border-radius: 0 3px 3px 0;"></div>
+          </div>
+          <!-- Neutral -->
+          <div class="palette-row">
+            <span class="palette-label">Neutral</span>
+            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#fafafa;"></div>
+            <div class="palette-swatch" style="background:#f2f2f2;"></div>
+            <div class="palette-swatch" style="background:#e5e5e5;"></div>
+            <div class="palette-swatch" style="background:#c9c9c9;"></div>
+            <div class="palette-swatch" style="background:#adadad;"></div>
+            <div class="palette-swatch" style="background:#919191;"></div>
+            <div class="palette-swatch" style="background:#767676;"></div>
+            <div class="palette-swatch" style="background:#5c5c5c;"></div>
+            <div class="palette-swatch" style="background:#444444; border-radius: 0 3px 3px 0;"></div>
+          </div>
+          <!-- Teal / Secondary -->
+          <div class="palette-row">
+            <span class="palette-label">Secondary</span>
+            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#f3fffe;"></div>
+            <div class="palette-swatch" style="background:#d5fbf7;"></div>
+            <div class="palette-swatch" style="background:#aff5ee;"></div>
+            <div class="palette-swatch" style="background:#5de8db;"></div>
+            <div class="palette-swatch" style="background:#00d9cb;"></div>
+            <div class="palette-swatch" style="background:#00bcb0;"></div>
+            <div class="palette-swatch" style="background:#009e93;"></div>
+            <div class="palette-swatch" style="background:#007f78;"></div>
+            <div class="palette-swatch" style="background:#006360; border-radius: 0 3px 3px 0;"></div>
+          </div>
+          <!-- Red / Error -->
+          <div class="palette-row">
+            <span class="palette-label">Error</span>
+            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#fff8f7;"></div>
+            <div class="palette-swatch" style="background:#ffedea;"></div>
+            <div class="palette-swatch" style="background:#ffdad6;"></div>
+            <div class="palette-swatch" style="background:#ffb4ab;"></div>
+            <div class="palette-swatch" style="background:#ff897d;"></div>
+            <div class="palette-swatch" style="background:#ff5449;"></div>
+            <div class="palette-swatch" style="background:#de3730;"></div>
+            <div class="palette-swatch" style="background:#ba1a1a;"></div>
+            <div class="palette-swatch" style="background:#93000a; border-radius: 0 3px 3px 0;"></div>
+          </div>
+          <!-- Green / Success -->
+          <div class="palette-row">
+            <span class="palette-label">Success</span>
+            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#f4fef0;"></div>
+            <div class="palette-swatch" style="background:#d8f5d0;"></div>
+            <div class="palette-swatch" style="background:#baecb2;"></div>
+            <div class="palette-swatch" style="background:#80d876;"></div>
+            <div class="palette-swatch" style="background:#52c34e;"></div>
+            <div class="palette-swatch" style="background:#2aae26;"></div>
+            <div class="palette-swatch" style="background:#009600;"></div>
+            <div class="palette-swatch" style="background:#007a00;"></div>
+            <div class="palette-swatch" style="background:#005e00; border-radius: 0 3px 3px 0;"></div>
+          </div>
+          <!-- Yellow / Warning -->
+          <div class="palette-row">
+            <span class="palette-label">Warning</span>
+            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#fffce8;"></div>
+            <div class="palette-swatch" style="background:#fff5c2;"></div>
+            <div class="palette-swatch" style="background:#ffec9a;"></div>
+            <div class="palette-swatch" style="background:#f7d848;"></div>
+            <div class="palette-swatch" style="background:#d9bc00;"></div>
+            <div class="palette-swatch" style="background:#b9a200;"></div>
+            <div class="palette-swatch" style="background:#9a8800;"></div>
+            <div class="palette-swatch" style="background:#7c6e00;"></div>
+            <div class="palette-swatch" style="background:#5f5600; border-radius: 0 3px 3px 0;"></div>
+          </div>
+          <!-- Blue / Informational -->
+          <div class="palette-row">
+            <span class="palette-label">Info</span>
+            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#f8f9ff;"></div>
+            <div class="palette-swatch" style="background:#e8eeff;"></div>
+            <div class="palette-swatch" style="background:#d5e3ff;"></div>
+            <div class="palette-swatch" style="background:#abc7ff;"></div>
+            <div class="palette-swatch" style="background:#7aabf8;"></div>
+            <div class="palette-swatch" style="background:#4d8ee0;"></div>
+            <div class="palette-swatch" style="background:#2474cc;"></div>
+            <div class="palette-swatch" style="background:#005bb6;"></div>
+            <div class="palette-swatch" style="background:#0044a1; border-radius: 0 3px 3px 0;"></div>
+          </div>
+        </div>
+        <p style="font-size: 0.72rem; color: var(--caption); margin-top: 0.7rem; letter-spacing: 0.02em;">Representative palette values. Exact brand hex values live in the Figma master file.</p>
       </div>
 
       <p>
