@@ -6,6 +6,7 @@
   <title>Nexxen DSP Design System — Duo Xu</title>
   <meta name="description" content="How I modularized and tokenized Nexxen's design system: a 3-tier token architecture across seven tonal palettes, enabling dark mode, white-label theming, and a single source of truth for a programmatic advertising platform.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
 </head>
 <body>
 
@@ -29,13 +30,13 @@
       <p class="mono" style="margin-bottom: 1rem;">Case Study &middot; 2025&ndash;2026</p>
       <h1>Nexxen DSP: Rebuilding the Token Foundation for a Platform at Scale</h1>
       <p class="case-header-desc">
-        I modularized and tokenized Nexxen's entire design language from scratch. The result
-        was a 3-tier token architecture across seven tonal palettes, an eight-size typography
-        system, and a single Figma master file that made dark mode and white-label retheming
-        finally possible without touching a single component.
+        Modularized a legacy design system into a scalable 3-tier Figma token library with 200+ components, 
+        consolidating 40+ hardcoded values and enabling rapid dark mode and white-label retheming across platforms.
+
+
       </p>
       <div class="case-cover">
-        <span>[ Cover image: Design Token Master File &mdash; tonal palette overview ]</span>
+        <img src="Assets/Nexxen/Nexxen Cover Photo.png" alt="Nexxen DSP design system cover">
       </div>
     </section>
 
@@ -135,7 +136,7 @@
       </p>
 
       <div class="img-block img-block--short">
-        <span>[ Audit output: color value inventory and duplication map across product surfaces ]</span>
+        <img src="Assets/Nexxen/Old Master File.gif" alt="Audit output: color value inventory and duplication map across product surfaces">
       </div>
 
       <p>
@@ -221,9 +222,9 @@
           <p class="mono" style="margin-bottom: 0.55rem; color: var(--accent); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;">Tier 1 &middot; Primitives</p>
           <p style="font-size: 0.88rem; line-height: 1.78;">
             The raw palette. Every literal color value in the system, organized into seven
-            tonal scales on a 0&ndash;100 range: Purple, Neutral, Teal, Red, Green, Yellow, and Blue.
-            Each scale uses non-linear stops at 100, 99, 95, 90, 80, 70, 60, 50, 40, and 30,
-            mirroring Material Design's palette structure. The 99 and 95 stops give fine-grained
+            tonal scales on a 0&ndash;100 range: Primary, Secondary, Information, Error, Success, Neutral, and Neutral Variant.
+            Each scale uses non-linear stops at 100, 98, 95, 90, 80, 70, 60, 50, 40, 30, 20, 10, and 0,
+            mirroring Material Design's palette structure. The 98 and 95 stops give fine-grained
             control at the light end of the scale where most surfaces live. Primitives are named
             by position, never by intent.
             <code style="font-family: 'Courier New', monospace; font-size: 0.81rem; color: var(--text); background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 2px;">purple.40</code>
@@ -259,9 +260,131 @@
         </div>
       </div>
 
-      <div class="img-block">
-        <span>[ Token architecture: cascade diagram from primitive to semantic to component ]</span>
-      </div>
+      <!-- TOKEN CASCADE DIAGRAM -->
+      <div class="token-cascade" aria-label="Token architecture cascade diagram">
+
+        <!-- Column headers -->
+        <div class="tc-headers">
+          <div class="tc-col-label">Primitive Tokens</div>
+          <div class="tc-col-label">Semantic Tokens</div>
+          <div class="tc-col-label">Component Tokens</div>
+        </div>
+
+        <!-- Row 1: purple/0 → primary/0 → text/page/header -->
+        <div class="tc-row">
+          <div class="tc-node tc-node--primitive">
+            <span class="tc-swatch" style="background:#15003b;"></span>
+            <span class="tc-label">color/purple/0</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--semantic">
+            <span class="tc-swatch" style="background:#15003b;"></span>
+            <span class="tc-label">primary/0</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--component">
+            <span class="tc-swatch" style="background:#15003b;"></span>
+            <span class="tc-label">text/page/header</span>
+          </div>
+        </div>
+
+        <!-- Row 2: purple/30 → primary/default → text/page/body + inputfield/selected/border -->
+        <div class="tc-row tc-row--multi">
+          <div class="tc-node tc-node--primitive">
+            <span class="tc-swatch" style="background:#4d3d69;"></span>
+            <span class="tc-label">color/purple/30</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--semantic">
+            <span class="tc-swatch" style="background:#4d3d69;"></span>
+            <span class="tc-label">primary/default</span>
+          </div>
+          <div class="tc-arrow tc-arrow--fork">→</div>
+          <div class="tc-node-group">
+            <div class="tc-node tc-node--component">
+              <span class="tc-swatch" style="background:#4d3d69;"></span>
+              <span class="tc-label">text/page/body</span>
+            </div>
+            <div class="tc-node tc-node--component">
+              <span class="tc-swatch" style="background:#4d3d69;"></span>
+              <span class="tc-label">inputfield/selected/border</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: lavender/100 → secondary/100 → surface/page/bg -->
+        <div class="tc-row">
+          <div class="tc-node tc-node--primitive">
+            <span class="tc-swatch" style="background:#faf9fa; border:1px solid #ddd;"></span>
+            <span class="tc-label">color/lavender/100</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--semantic">
+            <span class="tc-swatch" style="background:#faf9fa; border:1px solid #ddd;"></span>
+            <span class="tc-label">secondary/100</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--component">
+            <span class="tc-swatch" style="background:#faf9fa; border:1px solid #ddd;"></span>
+            <span class="tc-label">surface/page/bg</span>
+          </div>
+        </div>
+
+        <!-- Row 4: lavender/70 → secondary/70 → inputfield/idle/border -->
+        <div class="tc-row">
+          <div class="tc-node tc-node--primitive">
+            <span class="tc-swatch" style="background:#bcb7c6;"></span>
+            <span class="tc-label">color/lavender/70</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--semantic">
+            <span class="tc-swatch" style="background:#bcb7c6;"></span>
+            <span class="tc-label">secondary/70</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--component">
+            <span class="tc-swatch" style="background:#bcb7c6;"></span>
+            <span class="tc-label">inputfield/idle/border</span>
+          </div>
+        </div>
+
+        <!-- Row 5: red/90 → error/90 → semantics/error/bg -->
+        <div class="tc-row">
+          <div class="tc-node tc-node--primitive">
+            <span class="tc-swatch" style="background:#ffdad7;"></span>
+            <span class="tc-label">color/red/90</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--semantic">
+            <span class="tc-swatch" style="background:#ffdad7;"></span>
+            <span class="tc-label">error/90</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--component">
+            <span class="tc-swatch" style="background:#ffdad7;"></span>
+            <span class="tc-label">semantics/error/bg</span>
+          </div>
+        </div>
+
+        <!-- Row 6: green/30 → success/30 → semantics/success/fg -->
+        <div class="tc-row">
+          <div class="tc-node tc-node--primitive">
+            <span class="tc-swatch" style="background:#215600;"></span>
+            <span class="tc-label">color/green/30</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--semantic">
+            <span class="tc-swatch" style="background:#215600;"></span>
+            <span class="tc-label">success/30</span>
+          </div>
+          <div class="tc-arrow">→</div>
+          <div class="tc-node tc-node--component">
+            <span class="tc-swatch" style="background:#215600;"></span>
+            <span class="tc-label">semantics/success/fg</span>
+          </div>
+        </div>
+
+      </div><!-- /.token-cascade -->
     </section>
 
     <!-- COLOR SYSTEM -->
@@ -269,10 +392,9 @@
       <p class="case-section-label">Color System</p>
       <h2>Seven tonal palettes, <em>one shared grammar</em></h2>
       <p>
-        The color system is built on seven tonal palettes: Purple (primary), Neutral,
-        Teal (secondary), Red (error), Green (success), Yellow (warning), and Blue
-        (informational). Each palette runs a 0&ndash;100 perceptual luminance scale with stops
-        at 100, 99, 95, 90, 80, 70, 60, 50, 40, and 30.
+        The color system is built on seven tonal palettes: Primary, Secondary, Information,
+        Error, Success, Neutral, and Neutral Variant. Each palette runs a 0&ndash;100 perceptual
+        luminance scale with stops at 100, 98, 95, 90, 80, 70, 60, 50, 40, 30, 20, 10, and 0.
       </p>
       <p>
         The non-linear stops were intentional. The 99 and 95 positions exist specifically
@@ -284,10 +406,10 @@
 
       <!-- Tonal palette swatches -->
       <div style="margin: 1.8rem 0;">
-        <div style="display: grid; grid-template-columns: 5rem repeat(10, 1fr); gap: 0; margin-bottom: 0.35rem; padding-left: 0;">
+        <div style="display: grid; grid-template-columns: 5rem repeat(13, 1fr); gap: 0; margin-bottom: 0.35rem; padding-left: 0;">
           <span></span>
           <span class="palette-stop-label">100</span>
-          <span class="palette-stop-label">99</span>
+          <span class="palette-stop-label">98</span>
           <span class="palette-stop-label">95</span>
           <span class="palette-stop-label">90</span>
           <span class="palette-stop-label">80</span>
@@ -296,108 +418,132 @@
           <span class="palette-stop-label">50</span>
           <span class="palette-stop-label">40</span>
           <span class="palette-stop-label">30</span>
+          <span class="palette-stop-label">20</span>
+          <span class="palette-stop-label">10</span>
+          <span class="palette-stop-label">0</span>
         </div>
         <div class="palette-grid">
-          <!-- Purple / Primary -->
+          <!-- Purple -->
           <div class="palette-row">
             <span class="palette-label">Primary</span>
-            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#fdf8ff;"></div>
-            <div class="palette-swatch" style="background:#f0e5ff;"></div>
-            <div class="palette-swatch" style="background:#e2d0ff;"></div>
-            <div class="palette-swatch" style="background:#c5a8ff;"></div>
-            <div class="palette-swatch" style="background:#a87ffc;"></div>
-            <div class="palette-swatch" style="background:#8c55e9;"></div>
-            <div class="palette-swatch" style="background:#7030ce;"></div>
-            <div class="palette-swatch" style="background:#5610b2;"></div>
-            <div class="palette-swatch" style="background:#3e0096; border-radius: 0 3px 3px 0;"></div>
+            <div class="palette-swatch" style="background:#fdfbff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#fcf7ff;"></div>
+            <div class="palette-swatch" style="background:#f7edff;"></div>
+            <div class="palette-swatch" style="background:#ebdcff;"></div>
+            <div class="palette-swatch" style="background:#d2bdf2;"></div>
+            <div class="palette-swatch" style="background:#b6a2d5;"></div>
+            <div class="palette-swatch" style="background:#9b88ba;"></div>
+            <div class="palette-swatch" style="background:#806f9e;"></div>
+            <div class="palette-swatch" style="background:#675684;"></div>
+            <div class="palette-swatch" style="background:#4d3d69;"></div>
+            <div class="palette-swatch" style="background:#382853;"></div>
+            <div class="palette-swatch" style="background:#22133d;"></div>
+            <div class="palette-swatch" style="background:#15003b; border-radius: 0 3px 3px 0;"></div>
           </div>
-          <!-- Neutral -->
-          <div class="palette-row">
-            <span class="palette-label">Neutral</span>
-            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#fafafa;"></div>
-            <div class="palette-swatch" style="background:#f2f2f2;"></div>
-            <div class="palette-swatch" style="background:#e5e5e5;"></div>
-            <div class="palette-swatch" style="background:#c9c9c9;"></div>
-            <div class="palette-swatch" style="background:#adadad;"></div>
-            <div class="palette-swatch" style="background:#919191;"></div>
-            <div class="palette-swatch" style="background:#767676;"></div>
-            <div class="palette-swatch" style="background:#5c5c5c;"></div>
-            <div class="palette-swatch" style="background:#444444; border-radius: 0 3px 3px 0;"></div>
-          </div>
-          <!-- Lavender / Secondary -->
+          <!-- Lavender -->
           <div class="palette-row">
             <span class="palette-label">Secondary</span>
-            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#fef7ff;"></div>
-            <div class="palette-swatch" style="background:#f8eaff;"></div>
-            <div class="palette-swatch" style="background:#efd6ff;"></div>
-            <div class="palette-swatch" style="background:#dbb2ff;"></div>
-            <div class="palette-swatch" style="background:#c582ff;"></div>
-            <div class="palette-swatch" style="background:#ae52e3;"></div>
-            <div class="palette-swatch" style="background:#9330c8;"></div>
-            <div class="palette-swatch" style="background:#7a0dae;"></div>
-            <div class="palette-swatch" style="background:#600096; border-radius: 0 3px 3px 0;"></div>
+            <div class="palette-swatch" style="background:#faf9fa; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#f6f4f8;"></div>
+            <div class="palette-swatch" style="background:#eeecf4;"></div>
+            <div class="palette-swatch" style="background:#e2dfec;"></div>
+            <div class="palette-swatch" style="background:#d1ccdd;"></div>
+            <div class="palette-swatch" style="background:#bcb7c6;"></div>
+            <div class="palette-swatch" style="background:#a8a3b1;"></div>
+            <div class="palette-swatch" style="background:#8e8794;"></div>
+            <div class="palette-swatch" style="background:#6b6472;"></div>
+            <div class="palette-swatch" style="background:#4c4653;"></div>
+            <div class="palette-swatch" style="background:#37313f;"></div>
+            <div class="palette-swatch" style="background:#241f2c;"></div>
+            <div class="palette-swatch" style="background:#1a1524; border-radius: 0 3px 3px 0;"></div>
           </div>
-          <!-- Red / Error -->
+          <!-- Sky Blue -->
+          <div class="palette-row">
+            <span class="palette-label">Information</span>
+            <div class="palette-swatch" style="background:#f8fcff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#f0f8ff;"></div>
+            <div class="palette-swatch" style="background:#deefff;"></div>
+            <div class="palette-swatch" style="background:#cde3f9;"></div>
+            <div class="palette-swatch" style="background:#bdd4ec;"></div>
+            <div class="palette-swatch" style="background:#98aec2;"></div>
+            <div class="palette-swatch" style="background:#7e93a7;"></div>
+            <div class="palette-swatch" style="background:#64798d;"></div>
+            <div class="palette-swatch" style="background:#4c6173;"></div>
+            <div class="palette-swatch" style="background:#34495b;"></div>
+            <div class="palette-swatch" style="background:#1d3243;"></div>
+            <div class="palette-swatch" style="background:#061d2d;"></div>
+            <div class="palette-swatch" style="background:#02101a; border-radius: 0 3px 3px 0;"></div>
+          </div>
+          <!-- Red -->
           <div class="palette-row">
             <span class="palette-label">Error</span>
-            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#fffaf9; border-radius: 3px 0 0 3px;"></div>
             <div class="palette-swatch" style="background:#fff8f7;"></div>
-            <div class="palette-swatch" style="background:#ffedea;"></div>
-            <div class="palette-swatch" style="background:#ffdad6;"></div>
-            <div class="palette-swatch" style="background:#ffb4ab;"></div>
-            <div class="palette-swatch" style="background:#ff897d;"></div>
-            <div class="palette-swatch" style="background:#ff5449;"></div>
-            <div class="palette-swatch" style="background:#de3730;"></div>
-            <div class="palette-swatch" style="background:#ba1a1a;"></div>
-            <div class="palette-swatch" style="background:#93000a; border-radius: 0 3px 3px 0;"></div>
+            <div class="palette-swatch" style="background:#ffebeb;"></div>
+            <div class="palette-swatch" style="background:#ffdad7;"></div>
+            <div class="palette-swatch" style="background:#ffb3ae;"></div>
+            <div class="palette-swatch" style="background:#ff8982;"></div>
+            <div class="palette-swatch" style="background:#ff4c4c;"></div>
+            <div class="palette-swatch" style="background:#df3438;"></div>
+            <div class="palette-swatch" style="background:#bb1623;"></div>
+            <div class="palette-swatch" style="background:#930014;"></div>
+            <div class="palette-swatch" style="background:#68000b;"></div>
+            <div class="palette-swatch" style="background:#410004;"></div>
+            <div class="palette-swatch" style="background:#190103; border-radius: 0 3px 3px 0;"></div>
           </div>
-          <!-- Green / Success -->
+          <!-- Green -->
           <div class="palette-row">
             <span class="palette-label">Success</span>
-            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#f4fef0;"></div>
-            <div class="palette-swatch" style="background:#d8f5d0;"></div>
-            <div class="palette-swatch" style="background:#baecb2;"></div>
-            <div class="palette-swatch" style="background:#80d876;"></div>
-            <div class="palette-swatch" style="background:#52c34e;"></div>
-            <div class="palette-swatch" style="background:#2aae26;"></div>
-            <div class="palette-swatch" style="background:#009600;"></div>
-            <div class="palette-swatch" style="background:#007a00;"></div>
-            <div class="palette-swatch" style="background:#005e00; border-radius: 0 3px 3px 0;"></div>
+            <div class="palette-swatch" style="background:#fdfff8; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#f3ffe8;"></div>
+            <div class="palette-swatch" style="background:#e1fcc7;"></div>
+            <div class="palette-swatch" style="background:#c3ec9d;"></div>
+            <div class="palette-swatch" style="background:#a1db69;"></div>
+            <div class="palette-swatch" style="background:#7ec537;"></div>
+            <div class="palette-swatch" style="background:#66aa22;"></div>
+            <div class="palette-swatch" style="background:#538a1a;"></div>
+            <div class="palette-swatch" style="background:#3c6b0e;"></div>
+            <div class="palette-swatch" style="background:#215600;"></div>
+            <div class="palette-swatch" style="background:#1c3700;"></div>
+            <div class="palette-swatch" style="background:#152a04;"></div>
+            <div class="palette-swatch" style="background:#0e2000; border-radius: 0 3px 3px 0;"></div>
           </div>
-          <!-- Yellow / Warning -->
+          <!-- Grey -->
           <div class="palette-row">
-            <span class="palette-label">Warning</span>
-            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#fffce8;"></div>
-            <div class="palette-swatch" style="background:#fff5c2;"></div>
-            <div class="palette-swatch" style="background:#ffec9a;"></div>
-            <div class="palette-swatch" style="background:#f7d848;"></div>
-            <div class="palette-swatch" style="background:#d9bc00;"></div>
-            <div class="palette-swatch" style="background:#b9a200;"></div>
-            <div class="palette-swatch" style="background:#9a8800;"></div>
-            <div class="palette-swatch" style="background:#7c6e00;"></div>
-            <div class="palette-swatch" style="background:#5f5600; border-radius: 0 3px 3px 0;"></div>
+            <span class="palette-label">Neutral</span>
+            <div class="palette-swatch" style="background:#fbfbfb; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#faf9fa;"></div>
+            <div class="palette-swatch" style="background:#f0efef;"></div>
+            <div class="palette-swatch" style="background:#e5e2e1;"></div>
+            <div class="palette-swatch" style="background:#c9c6c6;"></div>
+            <div class="palette-swatch" style="background:#adabaa;"></div>
+            <div class="palette-swatch" style="background:#929090;"></div>
+            <div class="palette-swatch" style="background:#787777;"></div>
+            <div class="palette-swatch" style="background:#5f5e5e;"></div>
+            <div class="palette-swatch" style="background:#474647;"></div>
+            <div class="palette-swatch" style="background:#313030;"></div>
+            <div class="palette-swatch" style="background:#1c1b1c;"></div>
+            <div class="palette-swatch" style="background:#121111; border-radius: 0 3px 3px 0;"></div>
           </div>
-          <!-- Sky Blue / Tertiary -->
+          <!-- Fog -->
           <div class="palette-row">
-            <span class="palette-label">Tertiary</span>
-            <div class="palette-swatch" style="background:#ffffff; border-radius: 3px 0 0 3px;"></div>
-            <div class="palette-swatch" style="background:#f5fbff;"></div>
-            <div class="palette-swatch" style="background:#dff4ff;"></div>
-            <div class="palette-swatch" style="background:#bdeaff;"></div>
-            <div class="palette-swatch" style="background:#72d6ff;"></div>
-            <div class="palette-swatch" style="background:#00c5f5;"></div>
-            <div class="palette-swatch" style="background:#00a8d4;"></div>
-            <div class="palette-swatch" style="background:#008cb4;"></div>
-            <div class="palette-swatch" style="background:#006f92;"></div>
-            <div class="palette-swatch" style="background:#005674; border-radius: 0 3px 3px 0;"></div>
+            <span class="palette-label">Neutral Variant</span>
+            <div class="palette-swatch" style="background:#fefeff; border-radius: 3px 0 0 3px;"></div>
+            <div class="palette-swatch" style="background:#f2f4f7;"></div>
+            <div class="palette-swatch" style="background:#dee1e5;"></div>
+            <div class="palette-swatch" style="background:#cfd4d8;"></div>
+            <div class="palette-swatch" style="background:#bfc5cb;"></div>
+            <div class="palette-swatch" style="background:#adb4bd;"></div>
+            <div class="palette-swatch" style="background:#9ba4af;"></div>
+            <div class="palette-swatch" style="background:#818b98;"></div>
+            <div class="palette-swatch" style="background:#636e7a;"></div>
+            <div class="palette-swatch" style="background:#49525c;"></div>
+            <div class="palette-swatch" style="background:#373d45;"></div>
+            <div class="palette-swatch" style="background:#292e35;"></div>
+            <div class="palette-swatch" style="background:#1a1f26; border-radius: 0 3px 3px 0;"></div>
           </div>
         </div>
-        <p style="font-size: 0.72rem; color: var(--caption); margin-top: 0.7rem; letter-spacing: 0.02em;">Representative palette values. Exact brand hex values live in the Figma master file.</p>
+        <p style="font-size: 0.72rem; color: var(--caption); margin-top: 0.7rem; letter-spacing: 0.02em;">Exact values from the Figma Design Token Master File.</p>
       </div>
 
       <p>
@@ -438,42 +584,42 @@
           <span class="mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--caption); padding-left: 1.4rem;">Use context</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--text); line-height: 1;">Hero Title</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 1.3rem; font-weight: 300; color: var(--text); line-height: 1;">Hero Title</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">42px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Onboarding surfaces, empty states</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--text); line-height: 1;">Greeting Title</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 1.1rem; font-weight: 300; color: var(--text); line-height: 1;">Greeting Title</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">32px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Dashboard headings, welcome screens</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
-          <span style="font-size: 1rem; font-weight: 500; color: var(--text); line-height: 1;">Page Title</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text); line-height: 1;">Page Title</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">28px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Section and view-level headings</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
-          <span style="font-size: 0.92rem; font-weight: 500; color: var(--text); line-height: 1;">Pane Header</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 0.92rem; font-weight: 500; color: var(--text); line-height: 1;">Pane Header</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">20px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Panel and drawer titles</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
-          <span style="font-size: 0.86rem; font-weight: 500; color: var(--text); line-height: 1;">Subject Title</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 0.86rem; font-weight: 500; color: var(--text); line-height: 1;">Subject Title</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">18px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Card headers, list group labels</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
-          <span style="font-size: 0.8rem; color: var(--text); line-height: 1;">Body Text</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 0.8rem; font-weight: 400; color: var(--text); line-height: 1;">Body Text</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">16px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Primary reading content, form labels</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); align-items: baseline;">
-          <span style="font-size: 0.74rem; color: var(--text); line-height: 1;">Metadata</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 0.74rem; font-weight: 400; color: var(--text); line-height: 1;">Metadata</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">14px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Supporting text, timestamps, tags</span>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 3.5rem 1fr; padding: 0.75rem 1.2rem; align-items: baseline;">
-          <span style="font-size: 0.68rem; color: var(--caption); line-height: 1;">Metadata Limited</span>
+          <span style="font-family: 'Roboto', sans-serif; font-size: 0.68rem; font-weight: 400; color: var(--caption); line-height: 1;">Metadata Limited</span>
           <span class="mono" style="font-size: 0.66rem; color: var(--caption); text-align: right;">12px</span>
           <span style="font-size: 0.78rem; color: var(--body); padding-left: 1.4rem;">Dense table data, axis labels, legal copy</span>
         </div>
@@ -546,7 +692,7 @@
       </p>
 
       <div class="img-block">
-        <span>[ Component library: form elements and data tables with full state coverage and token annotations ]</span>
+        <img src="Assets/Nexxen/Nexxen Design File Showcase.gif" alt="Component library: form elements and data tables with full state coverage and token annotations">
       </div>
     </section>
 
@@ -567,7 +713,7 @@
       </p>
 
       <div class="img-block img-block--short">
-        <span>[ Side by side: default light theme, dark mode, and white-label enterprise theme ]</span>
+        <img src="Assets/Nexxen/Dark Mode Showcase.gif" alt="Side by side: default light theme, dark mode, and white-label enterprise theme">
       </div>
 
       <p>

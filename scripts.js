@@ -94,7 +94,9 @@
         const el     = entry.target;
         const target = parseFloat(el.dataset.count);
         const suffix = el.dataset.suffix || '';
-        animateCounter(el, target, suffix);
+        // Delay on initial load so counter starts after hero fade-in completes (0.52s delay + 0.75s anim)
+        const delay = performance.now() < 2000 ? 1350 : 0;
+        setTimeout(() => animateCounter(el, target, suffix), delay);
         counterObs.unobserve(el);
       });
     }, { threshold: 0.5 });
@@ -172,12 +174,38 @@
     if (!grid) return;
 
     const $count = document.getElementById('mosaicCount');
-    const $gap   = document.getElementById('mosaicGap');
-    const $round = document.getElementById('mosaicRound');
     const $chaos = document.getElementById('mosaicChaos');
 
-    // To enable photo masking: set PHOTO = 'url(your-photo.jpg)'
-    const PHOTO = null;
+    const PHOTO = 'Assets/Home/Duo Photo.png';
+
+    // Preload photo to get its natural aspect ratio before first build
+    let photoAspect = 1;
+    const _preload = new Image();
+    _preload.onload  = () => { photoAspect = _preload.naturalWidth / _preload.naturalHeight; requestAnimationFrame(build); };
+    _preload.onerror = () => requestAnimationFrame(build);
+    _preload.src     = PHOTO;
+
+    // Compute background-size and background-position so one photo
+    // spans the full N×N grid without distortion (cover-fit, centered).
+    // All values are percentages relative to one cell.
+    function photoBg(col, row, n, R) {
+      let bsW, bsH, bgX, bgY;
+      if (R >= 1) {
+        // Landscape: fit height to grid, overflow width (center horizontally)
+        bsW  = n * R * 100;
+        bsH  = n * 100;
+        bgX  = (n * R - 1) > 0.001 ? (n * (R - 1) / 2 + col) / (n * R - 1) * 100 : 50;
+        bgY  = n > 1 ? row / (n - 1) * 100 : 50;
+      } else {
+        // Portrait: fit width to grid, overflow height (center vertically)
+        const S = 1 / R;
+        bsW  = n * 100;
+        bsH  = n * S * 100;
+        bgX  = n > 1 ? col / (n - 1) * 100 : 50;
+        bgY  = (n * S - 1) > 0.001 ? (n * (S - 1) / 2 + row) / (n * S - 1) * 100 : 50;
+      }
+      return { bsW, bsH, bgX, bgY };
+    }
 
     // Shape border-radius library
     const SHAPES = [
@@ -218,16 +246,16 @@
     function cellColor(col, row, n) {
       const tx = n > 1 ? col / (n - 1) : 0.5;
       const ty = n > 1 ? row / (n - 1) : 0.5;
-      const hue = 342 - (tx + ty) * 0.5 * 142;
-      const sat = 38 - ty * 6;
-      const lit = 84 - (tx + ty) * 3.5;
+      const hue = 348 - (tx + ty) * 0.5 * 26;
+      const sat = 44 - ty * 8;
+      const lit = 89 - (tx + ty) * 3;
       return `hsl(${hue.toFixed(1)}, ${sat.toFixed(1)}%, ${lit.toFixed(1)}%)`;
     }
 
     function build() {
       const n   = +$count.value;
-      const gap = +$gap.value;
-      const r   = +$round.value / 100;
+      const gap = 4;
+      const r   = 0.6;
       const c   = +$chaos.value / 100;
 
       grid.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
@@ -244,11 +272,18 @@
         cell.style.animationDelay = (i * 12) + 'ms';
 
         if (PHOTO) {
-          const bgX = n > 1 ? (col / (n - 1)) * 100 : 50;
-          const bgY = n > 1 ? (row / (n - 1)) * 100 : 50;
-          cell.style.backgroundImage    = `url(${PHOTO})`;
-          cell.style.backgroundSize     = `${n * 100}% ${n * 100}%`;
-          cell.style.backgroundPosition = `${bgX}% ${bgY}%`;
+          const { bsW, bsH, bgX, bgY } = photoBg(col, row, n, photoAspect);
+          cell.style.backgroundImage    = `url("${PHOTO}")`;
+          cell.style.backgroundSize     = `${bsW.toFixed(2)}% ${bsH.toFixed(2)}%`;
+          cell.style.backgroundPosition = `${bgX.toFixed(2)}% ${bgY.toFixed(2)}%`;
+
+          // Per-cell pastel overlay hue: low chaos = pink family, high chaos = full spectrum
+          const baseHue  = 340;
+          const hueRange = 20 + c * 200;
+          const tx       = n > 1 ? col / (n - 1) : 0.5;
+          const ty       = n > 1 ? row / (n - 1) : 0.5;
+          const hue      = baseHue - (tx + ty) * 0.5 * hueRange + (Math.random() - 0.5) * c * 50;
+          cell.style.setProperty('--cell-hue', hue.toFixed(0));
         } else {
           cell.style.backgroundColor = cellColor(col, row, n);
         }
@@ -263,11 +298,11 @@
       });
     }
 
-    [$count, $gap, $round, $chaos].forEach(el => {
+    [$count, $chaos].forEach(el => {
       if (el) el.addEventListener('input', build);
     });
 
-    build();
+    // Initial build triggered by _preload.onload above
   })();
 
   /* ─── CARD SHIMMER ─────────────────────────────────────────── */
