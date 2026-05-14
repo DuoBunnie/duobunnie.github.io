@@ -340,6 +340,48 @@ strong { color: var(--text); font-weight: 500; }
   bottom: -80px; right: -60px;
 }
 
+/* ─── ABOUT AMBIENT GLOW ──────────────────────────────────────── */
+.about-intro {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-glow-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-intro:hover .about-glow-container { opacity: 1; }
+
+.about-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+.about-glow--1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200, 52, 106, 0.18) 0%, transparent 65%);
+  top: -100px; left: -80px;
+}
+
+.about-glow--2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(210, 100, 160, 0.13) 0%, transparent 65%);
+  top: 20%; right: 10%;
+}
+
+.about-glow--3 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(230, 160, 195, 0.10) 0%, transparent 65%);
+  bottom: -60px; right: -40px;
+}
+
 .hero-eyebrow {
   font-family: 'Jost', sans-serif;
   font-size: 0.68rem;

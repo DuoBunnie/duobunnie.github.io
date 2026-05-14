@@ -140,6 +140,42 @@
     })(performance.now());
   }
 
+  /* ─── ABOUT AMBIENT ORBS ──────────────────────────────────── */
+  const aboutSection = document.querySelector('.about-intro');
+  const aboutGlows   = document.querySelectorAll('.about-glow');
+
+  if (aboutSection && aboutGlows.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const aboutOrbConfig = [
+      { floatAx: 28, floatAy: 22, floatSpeed: 0.00055, floatPhase: 0,              parallaxX:  50, parallaxY:  38 },
+      { floatAx: 20, floatAy: 30, floatSpeed: 0.00042, floatPhase: Math.PI * 0.65, parallaxX: -42, parallaxY: -32 },
+      { floatAx: 24, floatAy: 18, floatSpeed: 0.00062, floatPhase: Math.PI * 1.3,  parallaxX:  32, parallaxY:  48 }
+    ];
+
+    let aboutTargetMx = 0, aboutTargetMy = 0, aboutSmoothMx = 0, aboutSmoothMy = 0;
+
+    aboutSection.addEventListener('mousemove', (e) => {
+      const r = aboutSection.getBoundingClientRect();
+      aboutTargetMx = (e.clientX - r.left)  / r.width  - 0.5;
+      aboutTargetMy = (e.clientY - r.top)   / r.height - 0.5;
+    });
+
+    aboutSection.addEventListener('mouseleave', () => { aboutTargetMx = 0; aboutTargetMy = 0; });
+
+    (function animateAboutGlows(timestamp) {
+      aboutSmoothMx = lerp(aboutSmoothMx, aboutTargetMx, 0.032);
+      aboutSmoothMy = lerp(aboutSmoothMy, aboutTargetMy, 0.032);
+
+      aboutGlows.forEach((orb, i) => {
+        const c  = aboutOrbConfig[i];
+        const fx = Math.sin(timestamp * c.floatSpeed + c.floatPhase) * c.floatAx;
+        const fy = Math.cos(timestamp * c.floatSpeed * 0.75 + c.floatPhase) * c.floatAy;
+        orb.style.transform = `translate(${fx + aboutSmoothMx * c.parallaxX}px, ${fy + aboutSmoothMy * c.parallaxY}px)`;
+      });
+
+      requestAnimationFrame(animateAboutGlows);
+    })(performance.now());
+  }
+
   /* ─── HAMBURGER MENU ──────────────────────────────────────── */
   const hamburger = document.querySelector('.nav-hamburger');
   const navLinks  = document.querySelector('.nav-links');
