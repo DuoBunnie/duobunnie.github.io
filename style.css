@@ -1307,8 +1307,8 @@ strong { color: var(--text); font-weight: 500; }
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.06em;
-  padding: 0.65rem 1.4rem;
-  border-radius: 4px;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
   text-decoration: none;
   transition: all 0.18s;
   display: inline-block;
@@ -1374,7 +1374,6 @@ footer p {
 .about-lead-text p {
   font-size: 0.97rem;
   line-height: 1.88;
-  max-width: 560px;
 }
 
 .about-lead-info { padding-top: 0.5rem; }
