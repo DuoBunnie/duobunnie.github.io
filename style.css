@@ -343,16 +343,17 @@ strong { color: var(--text); font-weight: 500; }
 /* ─── ABOUT AMBIENT GLOW ──────────────────────────────────────── */
 .about-intro {
   position: relative;
-  overflow: hidden;
 }
 
 .about-glow-container {
   position: absolute;
-  inset: 0;
+  inset: -120px;
   pointer-events: none;
   z-index: 0;
   opacity: 0;
   transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
 }
 
 .about-intro:hover .about-glow-container { opacity: 1; }
