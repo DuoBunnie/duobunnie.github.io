@@ -40,6 +40,9 @@
       <div class="case-cover">
         <img src="Assets/Strawberry%20Bunny/Pink%20Moon%20Cloud.gif" alt="Strawberry Bunny — Pink Moon Cloud level" decoding="async" fetchpriority="high">
       </div>
+      <div style="margin-top: 2rem;">
+        <a href="https://editor.p5js.org/DuoBunnie/full/DKuuae9jQ" target="_blank" rel="noopener" class="btn btn-primary">Play Strawberry Bunny &#x2192;</a>
+      </div>
     </section>
 
     <!-- META -->
@@ -99,9 +102,9 @@
         so the environment's acceleration is always relative to something stable. That
         contrast is what makes the game feel fair even as it gets harder.
       </p>
-      <!-- Replace with actual image/video -->
-      <div class="img-block img-block--short">
-        <span>[ Realm progression — color palette and obstacle pattern changes ]</span>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+        <img src="Assets/Strawberry%20Bunny/StarrySky.gif" alt="Starry Sky realm" loading="lazy" decoding="async" style="width: 100%; border-radius: 6px; display: block;">
+        <img src="Assets/Strawberry%20Bunny/pink-star.gif" alt="Pink Star realm" loading="lazy" decoding="async" style="width: 100%; border-radius: 6px; display: block;">
       </div>
     </section>
 
@@ -109,20 +112,28 @@
     <section class="case-section">
       <p class="case-section-label">Visual Direction</p>
       <h2>Soft forms, <em>hard constraints</em></h2>
-      <p>
-        The visual language is built on deliberate softness: rounded shapes, pastel fills,
-        a palette that feels closer to illustration than interface. That softness is not just
-        aesthetic — it sets an expectation of gentleness that the escalating difficulty then
-        works against. The tension between the cute surface and the actual pressure of the
-        game is part of what makes it feel like a dream turning strange.
-      </p>
-      <p>
-        The bunny herself is drawn entirely in code — no imported sprites. Every curve,
-        every ear, every blink is a p5.js shape call. That constraint kept the character
-        consistent across scales and forced a simplicity that a pixel sprite might have
-        avoided. She reads clearly at small sizes because she has to, which turned out to
-        be better character design than I would have planned for.
-      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; margin-bottom: 1.8rem;">
+        <div>
+          <p>
+            The visual language is built on deliberate softness: rounded shapes, pastel fills,
+            a palette that feels closer to illustration than interface. That softness is not just
+            aesthetic — it sets an expectation of gentleness that the escalating difficulty then
+            works against. The tension between the cute surface and the actual pressure of the
+            game is part of what makes it feel like a dream turning strange.
+          </p>
+          <p style="margin-top: 1.2rem;">
+            The bunny herself is drawn entirely in code — no imported sprites. Every curve,
+            every ear, every blink is a p5.js shape call. That constraint kept the character
+            consistent across scales and forced a simplicity that a pixel sprite might have
+            avoided. She reads clearly at small sizes because she has to, which turned out to
+            be better character design than I would have planned for.
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <img src="Assets/Strawberry%20Bunny/Duo.gif" alt="The bunny character" loading="lazy" decoding="async" style="width: 100%; border-radius: 6px; display: block;">
+          <img src="Assets/Strawberry%20Bunny/Strawberry.png" alt="Strawberry collectible" loading="lazy" decoding="async" style="width: 100%; border-radius: 6px; display: block;">
+        </div>
+      </div>
     </section>
 
   </main>
