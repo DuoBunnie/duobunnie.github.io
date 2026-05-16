@@ -1,45 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Dark background with rounded corners -->
+  <defs>
+
+    <!-- Main body: lit from upper-left, deep rose at edges -->
+    <radialGradient id="body" gradientUnits="userSpaceOnUse" cx="9" cy="7" r="24">
+      <stop offset="0%"   stop-color="#ffe6f5"/>
+      <stop offset="28%"  stop-color="#ffa0cc"/>
+      <stop offset="62%"  stop-color="#ec4a94"/>
+      <stop offset="100%" stop-color="#b01c62"/>
+    </radialGradient>
+
+    <!-- Specular shine: small bright spot, top-left -->
+    <radialGradient id="shine" gradientUnits="userSpaceOnUse" cx="7" cy="6" r="7">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.82"/>
+      <stop offset="60%"  stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Rim darkening: subtle gradient from transparent → dark at bottom -->
+    <linearGradient id="rim" gradientUnits="userSpaceOnUse" x1="0" y1="2" x2="0" y2="30">
+      <stop offset="0%"   stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.22"/>
+    </linearGradient>
+
+    <!-- Pink drop-shadow -->
+    <filter id="glow" x="-18%" y="-12%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.2"
+                    flood-color="#d8308a" flood-opacity="0.55"/>
+    </filter>
+
+  </defs>
+
+  <!-- Dark background -->
   <rect width="32" height="32" rx="7" fill="#0e0e0e"/>
 
-  <!--
-    4×4 mosaic grid forming the letter D.
-    Cell size: 6×6px  Gap: 2px  Start: (1,1)
-    Each cell at col c, row r → x = 1 + c*8,  y = 1 + r*8
+  <!-- D shape — smooth bezier curves for a puffy, inflated silhouette -->
+  <!-- Left bar: x 3–11  Bow: arcs out to x≈27 at midpoint (y=16)       -->
+  <path id="d"
+        d="M3,3 C3,2 4,2 5,2
+           L11,2
+           C23,2 27,8 27,16
+           C27,24 23,30 11,30
+           L5,30
+           C4,30 3,30 3,29
+           Z"
+        fill="url(#body)"
+        filter="url(#glow)"/>
 
-    D layout:
-      Col 0 (x=1):  all 4 rows  — vertical stroke
-      Col 1 (x=9):  row 0 & 3  — top/bottom connectors
-      Col 2 (x=17): row 0 & 3  — top/bottom arches (semicircle top/bottom)
-      Col 3 (x=25): row 1 & 2  — right-side arches (semicircle right)
-  -->
+  <!-- Rim shadow overlay (subtle depth at bottom) -->
+  <use href="#d" fill="url(#rim)"/>
 
-  <!-- ── Left vertical stroke (col 0) ── -->
-  <rect x="1"  y="1"  width="6" height="6" rx="1.5" fill="#b82d52"/>
-  <rect x="1"  y="9"  width="6" height="6" rx="1.5" fill="#c03258"/>
-  <rect x="1"  y="17" width="6" height="6" rx="1.5" fill="#c8365e"/>
-  <rect x="1"  y="25" width="6" height="6" rx="1.5" fill="#b02a50"/>
+  <!-- Specular highlight overlay -->
+  <use href="#d" fill="url(#shine)"/>
 
-  <!-- ── Top & bottom connectors (col 1) ── -->
-  <rect x="9"  y="1"  width="6" height="6" rx="1.5" fill="#cc4876"/>
-  <rect x="9"  y="25" width="6" height="6" rx="1.5" fill="#be3e6c"/>
-
-  <!-- ── Top arch: border-radius 50% 50% 0 0  (col 2, row 0) ──
-       Flat bottom, semicircle on top.
-       Cell: x=17–23, y=1–7. Arc centres share (20,4). -->
-  <path d="M17,7 L17,4 A3,3 0 0,1 20,1 A3,3 0 0,1 23,4 L23,7 Z" fill="#da6492"/>
-
-  <!-- ── Bottom arch: border-radius 0 0 50% 50%  (col 2, row 3) ──
-       Flat top, semicircle on bottom.
-       Cell: x=17–23, y=25–31. Arc centres share (20,28). -->
-  <path d="M17,25 L23,25 L23,28 A3,3 0 0,1 20,31 A3,3 0 0,1 17,28 Z" fill="#ce5884"/>
-
-  <!-- ── Right arch: border-radius 0 50% 50% 0  (col 3, row 1) ──
-       Flat left, semicircle on right.
-       Cell: x=25–31, y=9–15. Arc centres share (28,12). -->
-  <path d="M25,9 L28,9 A3,3 0 0,1 31,12 A3,3 0 0,1 28,15 L25,15 Z" fill="#e07aa8"/>
-
-  <!-- ── Right arch  (col 3, row 2) ──
-       Cell: x=25–31, y=17–23. Arc centres share (28,20). -->
-  <path d="M25,17 L28,17 A3,3 0 0,1 31,20 A3,3 0 0,1 28,23 L25,23 Z" fill="#d86e9e"/>
 </svg>
