@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pearlescent — Duo Xu</title>
+  <meta name="description" content="An interactive installation examining digital identity and biometric privacy — 3D-printed masks from biological data patterns, paired with audio-reactive visuals and a composed soundscape.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Duo Xu</a>
+    <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="exploration.html" class="active">Exploration</a></li>
+      <li><a href="Duo%20Xu%20Resume%202026.pdf" target="_blank" rel="noopener" class="nav-cta">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main class="page--wide">
+
+    <!-- CASE HEADER -->
+    <section class="case-header">
+      <p class="mono" style="margin-bottom: 1rem;">Exploration &nbsp;&middot;&nbsp; 2023</p>
+      <h1>Pearlescent</h1>
+      <p class="case-header-desc">
+        An installation about the tension between biological identity and digital surveillance.
+        Physical masks 3D-printed from bacterial and fungal growth data are displayed alongside
+        audio-reactive visuals and a composed soundscape — asking what it means when the body
+        becomes a data source. Made as a graduate thesis project at Parsons School of Design.
+      </p>
+      <div class="case-cover">
+        <!-- Replace with actual installation photography -->
+        <span>[ Pearlescent — installation view ]</span>
+      </div>
+    </section>
+
+    <!-- META -->
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="mono">Type</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Interactive Installation</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Tools</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">TouchDesigner, Ableton, 3D Printing</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Context</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">MFA Thesis, Parsons School of Design</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Year</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">2023</p>
+      </div>
+    </div>
+
+    <!-- CONCEPT -->
+    <section class="case-section case-section--no-rule">
+      <p class="case-section-label">Concept</p>
+      <h2>The body as <em>data</em></h2>
+      <p>
+        Biometric systems have made a quiet trade: they turn the most personal things about
+        you — your face, your fingerprint, the rhythm of your gait — into structured data that
+        can be stored, matched, and sold. The body becomes legible to systems that you have no
+        control over. Pearlescent starts from that premise and asks what it feels like to stand
+        inside it.
+      </p>
+      <p>
+        The masks are grown from real microbial growth patterns — bacterial and fungal colony
+        data of the same type used in biometric research. The same data structures that power
+        surveillance systems become the physical surface of the face. What looks organic is
+        also algorithmic. What feels intimate has already been extracted.
+      </p>
+      <p>
+        The installation does not argue against biometrics. It tries to make the abstraction
+        material. To give the viewer something to stand in front of and feel the weight of,
+        rather than scroll past.
+      </p>
+
+      <div class="callout">
+        <p>
+          What happens when the thing that makes you <em>you</em> becomes a data point
+          someone else owns?
+        </p>
+      </div>
+    </section>
+
+    <!-- MATERIALS & METHOD -->
+    <section class="case-section">
+      <p class="case-section-label">Materials &amp; Method</p>
+      <h2>From <em>organism</em> to object</h2>
+      <p>
+        The source data came from public microbiology datasets — time-lapse growth pattern
+        recordings of bacterial colonies and mycelial networks. I wrote scripts to extract
+        contour data from each growth frame and convert the density gradients into 3D surface
+        meshes. The topology of each mask is a literal translation of organism behavior:
+        ridges where colonies clustered, voids where growth stalled. Nothing was smoothed or
+        aestheticized in post.
+      </p>
+      <p>
+        Printing decisions were deliberate. Scale was set at 1:1 with a human face so the
+        masks read as wearable, not decorative. The material — a matte white resin — was
+        chosen to read as both clinical and skeletal, a surface that feels caught between
+        medical specimen and artifact. Finish was left rough at the edges where the growth
+        data produced irregular geometry, preserving evidence of the source material's nature.
+      </p>
+
+      <!-- Replace with actual process photography: data-to-mesh pipeline or printed mask detail -->
+      <div class="img-block img-block--short">
+        <span>[ Process: microbial data to 3D mesh ]</span>
+      </div>
+
+      <div class="explore-card-tags" style="margin-top: 1.2rem;">
+        <span class="tag">3D Printing</span>
+        <span class="tag">Generative Design</span>
+        <span class="tag">Biometric Data</span>
+      </div>
+    </section>
+
+    <!-- SOUND & VISUAL -->
+    <section class="case-section">
+      <p class="case-section-label">Sound &amp; Visual</p>
+      <h2>An environment that <em>responds</em></h2>
+      <p>
+        The visual system was built in TouchDesigner and responds to viewer presence via a
+        depth sensor positioned at the gallery entrance. As a viewer approaches the masks,
+        particle systems mapped onto the wall behind them begin to shift — density increases,
+        motion slows, and patterns that looked random reorganize into structures that echo the
+        growth data embedded in the mask surfaces. The viewer's proximity is the input.
+        The system does not acknowledge them directly, but it notices them.
+      </p>
+      <p>
+        The soundscape was composed in Ableton and plays continuously through directional
+        speakers aimed at the installation rather than the audience. The intention was to make
+        the sound feel like it was coming from the objects, not the room. Textures were sourced
+        from recordings of real fermentation processes — bubbling, spreading, slow metabolic
+        activity — pitched and layered into something that sits just below music. It evolves
+        over a 22-minute cycle, long enough that a viewer who stays will hear it change, but
+        not long enough to feel like performance.
+      </p>
+
+      <!-- Replace with actual installation view or TouchDesigner patch screenshot -->
+      <div class="img-block img-block--short">
+        <span>[ Audio-reactive visual system — TouchDesigner ]</span>
+      </div>
+
+      <div class="explore-card-tags" style="margin-top: 1.2rem;">
+        <span class="tag">TouchDesigner</span>
+        <span class="tag">Ableton</span>
+        <span class="tag">Audio-Visual</span>
+      </div>
+    </section>
+
+    <!-- EXHIBITION -->
+    <section class="case-section">
+      <p class="case-section-label">Exhibition</p>
+      <h2>Showing <em>discomfort</em> in a gallery</h2>
+      <p>
+        The piece was shown at the Parsons MFA thesis exhibition. The conversations it started
+        were not the ones I expected. Viewers did not talk much about surveillance or policy.
+        They talked about recognition — about how strange it was to see something that looked
+        like a face but was made of something they associated with disease or decay. The
+        discomfort came from the material, not the argument, which was the right outcome.
+        When the concept is legible only as a concept, it stays at a distance. When it
+        unsettles the body, it lands.
+      </p>
+      <p>
+        What I learned designing an experience rather than a product was that the absence of
+        a task is itself a design decision. There was nothing for viewers to do, no interface
+        to complete, no clear instruction. Some people stayed for ten minutes. Some walked
+        through in thirty seconds. The work had to be stable enough to hold both. That
+        required thinking about pacing, threshold, and legibility in ways that product work
+        rarely demands — and it changed how I think about designing for attention rather
+        than just for action.
+      </p>
+    </section>
+
+    <!-- BACK TO EXPLORATION -->
+    <a href="exploration.html" class="next-project">
+      <div>
+        <span class="next-project-label">Back to</span>
+        <span class="next-project-title">Exploration</span>
+      </div>
+      <span class="next-project-arrow">&larr;</span>
+    </a>
+
+  </main>
+
+  <footer>
+    <p>Duo Xu &mdash; Product Designer</p>
+    <ul class="footer-links">
+      <li><a href="mailto:hello@duobunnie.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/duobunnie" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>

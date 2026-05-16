@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Reactive Visualizations — Duo Xu</title>
+  <meta name="description" content="Generative visuals built in TouchDesigner that respond to Porter Robinson's Shelter in real time — spheres mapped to plane vertices synced to beat and spectrum data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Duo Xu</a>
+    <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="exploration.html" class="active">Exploration</a></li>
+      <li><a href="Duo%20Xu%20Resume%202026.pdf" target="_blank" rel="noopener" class="nav-cta">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main class="page--wide">
+
+    <!-- CASE HEADER -->
+    <section class="case-header">
+      <p class="mono" style="margin-bottom: 1rem;">Exploration &nbsp;&middot;&nbsp; 2022</p>
+      <h1>Audio Reactive Visualizations</h1>
+      <p class="case-header-desc">
+        Generative visuals driven by audio analysis in TouchDesigner, built around Porter Robinson's "Shelter". The geometry reacts to live spectrum and beat data, making the music visible.
+      </p>
+      <!-- Replace placeholder with actual cover image when available -->
+      <div class="case-cover">
+        <span>[ Cover — Audio Reactive Visualizations ]</span>
+      </div>
+    </section>
+
+    <!-- META -->
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="mono">Type</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Generative Art</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Tools</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">TouchDesigner</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Source</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">Porter Robinson &mdash; Shelter</p>
+      </div>
+      <div class="case-meta-item">
+        <span class="mono">Year</span>
+        <p style="color: var(--text); font-size: 0.88rem; margin-top: 0.2rem;">2022</p>
+      </div>
+    </div>
+
+    <!-- CONCEPT -->
+    <section class="case-section case-section--no-rule">
+      <p class="case-section-label">Concept</p>
+      <h2>Making music <em>visible</em></h2>
+      <p>
+        "Shelter" was the obvious choice for this project, and not just because of how well-known it is. The song has an unusually architectural quality to it — there are clear structural layers, a defined build, and a drop that hits with a lot of mass behind it. That kind of intentional pacing gives you real material to work with. A track with no dynamics would produce visuals with no dynamics.
+      </p>
+      <p>
+        The goal from the start was to make something that felt composed rather than random. Audio-reactive visuals can easily become noise — every value changing, everything reacting to everything, nothing reading as intentional. The constraint I set was that the visuals should feel like an interpretation of the song, something that could only exist as a response to this specific piece of music, not a generic spectrum analyzer dressed up with geometry.
+      </p>
+    </section>
+
+    <!-- TECHNICAL APPROACH -->
+    <section class="case-section">
+      <p class="case-section-label">Technical Approach</p>
+      <h2>Geometry driven by <em>frequency</em></h2>
+      <p>
+        The signal chain starts with an audio analysis CHOP in TouchDesigner that breaks the incoming audio into frequency bands — sub-bass, bass, mid, and high. Each band produces a continuous value that changes in real time as the song plays. Those values are then piped into a subdivided plane geometry, where each band controls the vertical displacement of a region of vertices. The result is a surface that physically deforms in response to what's happening in the audio — low frequencies heave the geometry slowly, high frequencies create finer, faster movement across the surface.
+      </p>
+      <p>
+        Spheres are instanced onto the plane's vertex positions and inherit the displacement, so they ride the surface as it moves. Color is mapped separately: warm tones are tied to the sub-bass and bass range, cooler tones to the upper mids and highs, with the crossover point shifting as the song's energy changes. Beat detection from a Beat CHOP drives a global pulse on top of the spectrum-based motion, so the rhythmic structure of the track imprints on the visual rhythm separately from the frequency content.
+      </p>
+      <!-- Replace placeholder with actual diagram or screenshot when available -->
+      <div class="img-block img-block--short">
+        <span>[ Node network — TouchDesigner patch overview ]</span>
+      </div>
+    </section>
+
+    <!-- OUTCOME -->
+    <section class="case-section">
+      <p class="case-section-label">Outcome</p>
+      <h2>When the <em>drop</em> hits</h2>
+      <p>
+        The final piece builds the way the song builds. In the quieter sections, the geometry stays relatively flat — spheres drifting with the high-frequency shimmer, color sitting cool and muted. As the track moves into its pre-drop, the low-end information starts to dominate and the plane begins to heave in larger waves. When the drop hits, the displacement peaks, the warm palette floods the frame, and the beat detection fires consistently enough that the whole field pulses in sync. It reads less like data visualization and more like something breathing.
+      </p>
+      <p>
+        What this project made clear is how much of visual rhythm is about restraint. The interesting moments in the output aren't when everything is reacting — they're when one frequency band goes quiet and something else takes over. The relationship between audio and visual rhythm isn't about mirroring sound; it's about finding the right delay, the right scale, the right parameter to map so that the response feels earned rather than literal.
+      </p>
+    </section>
+
+    <!-- TAGS -->
+    <div style="margin-top: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <span class="tag">TouchDesigner</span>
+      <span class="tag">Generative Art</span>
+      <span class="tag">Audio-Visual</span>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Duo Xu &mdash; Product Designer</p>
+    <ul class="footer-links">
+      <li><a href="mailto:hello@duobunnie.com">Email</a></li>
+      <li><a href="https://linkedin.com/in/duobunnie" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>
