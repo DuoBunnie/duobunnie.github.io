@@ -352,8 +352,8 @@ strong { color: var(--text); font-weight: 500; }
   z-index: 0;
   opacity: 0;
   transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%);
 }
 
 .about-intro:hover .about-glow-container { opacity: 1; }
@@ -366,20 +366,20 @@ strong { color: var(--text); font-weight: 500; }
 }
 
 .about-glow--1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(200, 52, 106, 0.18) 0%, transparent 65%);
-  top: -100px; left: -80px;
+  width: 680px; height: 680px;
+  background: radial-gradient(circle, rgba(200, 52, 106, 0.26) 0%, transparent 65%);
+  top: -120px; left: -100px;
 }
 
 .about-glow--2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(210, 100, 160, 0.13) 0%, transparent 65%);
+  width: 580px; height: 580px;
+  background: radial-gradient(circle, rgba(210, 100, 160, 0.20) 0%, transparent 65%);
   top: 20%; right: 10%;
 }
 
 .about-glow--3 {
-  width: 480px; height: 480px;
-  background: radial-gradient(circle, rgba(230, 160, 195, 0.10) 0%, transparent 65%);
+  width: 540px; height: 540px;
+  background: radial-gradient(circle, rgba(230, 160, 195, 0.16) 0%, transparent 65%);
   bottom: -60px; right: -40px;
 }
 
