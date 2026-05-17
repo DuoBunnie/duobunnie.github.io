@@ -1526,10 +1526,6 @@ footer p {
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
   .nav-links a {
     display: block;
     padding: 0.9rem 0;
@@ -1537,12 +1533,25 @@ footer p {
     letter-spacing: 0.04em;
   }
 
+  .nav-links li:last-child {
+    border-bottom: none;
+    padding: 0.75rem 0 0.25rem;
+  }
+
   .nav-links a.nav-cta {
-    border: none;
-    border-radius: 0;
-    padding: 0.9rem 0;
+    display: inline-block;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 0.38rem 1rem;
     color: var(--accent);
     background: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  .nav-links a.nav-cta:hover {
+    background: var(--accent);
+    color: #ffffff;
   }
 
   /* ── Layout ── */
